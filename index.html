@@ -1,0 +1,2149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORMA & RAUM | Interior Design Studio</title>
+    <meta name="description" content="Interior design studio specializing in timeless, sensitive spaces that blend minimalism with warmth.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Organic Color Palette - warmer, more sensitive */
+            --canvas-white: #FAF9F7;
+            --ink-black: #141414;
+            --soft-stone: #E8E5E1;
+            --mist-grey: #9A9A9A;
+            --raw-oak: #9C8B7A;
+            --dusty-rose: #C8B6B0;
+            --sage-green: #A8B3A2;
+            --deep-charcoal: #1A1A1A;
+
+            /* Grid System */
+            --grid-columns: 12;
+            --grid-gutter: 24px;
+            --margin: 5vw;
+
+            /* Organic Easing - natural, fluid transitions */
+            --transition-organic: cubic-bezier(0.33, 1, 0.68, 1);
+            --transition-gentle: cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-fade: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--canvas-white);
+            color: var(--ink-black);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Typography - softer, more elegant */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant Garamond', 'Georgia', serif;
+            font-weight: 300;
+            letter-spacing: 0.01em;
+            line-height: 1.2;
+        }
+
+        .label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.6875rem;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--mist-grey);
+        }
+
+        /* Grid System */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: var(--grid-gutter);
+            padding: 0 var(--margin);
+            max-width: 100vw;
+        }
+
+        .grid-lines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0;
+            transition: opacity 0.6s var(--transition-organic);
+        }
+
+        .grid-lines.visible {
+            opacity: 0.06;
+        }
+
+        .grid-line {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: var(--soft-stone);
+        }
+
+        /* Navigation - minimal, elegant */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 var(--margin);
+            z-index: 1000;
+            transition: background-color 0.5s var(--transition-organic), box-shadow 0.5s var(--transition-organic);
+        }
+
+        nav.scrolled {
+            background-color: rgba(250, 249, 247, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 1px 0 var(--soft-stone);
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-weight: 300;
+            letter-spacing: 0.2em;
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.4s var(--transition-gentle);
+        }
+
+        .menu-toggle {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.6875rem;
+            font-weight: 400;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: inherit;
+            transition: color 0.4s var(--transition-gentle);
+            padding: 8px 0;
+        }
+
+        .menu-toggle .line {
+            width: 20px;
+            height: 1px;
+            background: currentColor;
+            transition: transform 0.5s var(--transition-organic);
+        }
+
+        .menu-toggle:hover .line {
+            transform: scaleX(1.2);
+        }
+
+        /* Hero Section - full-width with subtle elegance */
+        .hero {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            background: var(--soft-stone);
+        }
+
+        .hero-slider {
+            display: flex;
+            width: 200%;
+            height: 100%;
+            transition: transform 1s var(--transition-organic);
+        }
+
+        .hero-slide {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            flex-shrink: 0;
+        }
+
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.9;
+            transition: transform 8s ease-out;
+        }
+
+        .hero-slide.active .hero-image {
+            transform: scale(1.05);
+        }
+
+        .hero-fallback {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(145deg, #E8E5E1 0%, #D8D5D1 50%, #C8C5C1 100%);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(20, 20, 20, 0.4) 0%, rgba(20, 20, 20, 0.1) 50%, transparent 100%);
+        }
+
+        .hero-content {
+            position: absolute;
+            bottom: 100px;
+            left: var(--margin);
+            right: var(--margin);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            z-index: 10;
+        }
+
+        .hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 300;
+            color: #FFFFFF;
+            max-width: 65%;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .hero-meta {
+            text-align: right;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .hero-meta .location {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .hero-meta .number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.875rem;
+            font-weight: 300;
+            opacity: 0.6;
+            margin-top: 12px;
+            letter-spacing: 0.1em;
+        }
+
+        .hero-progress {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .hero-progress-bar {
+            height: 100%;
+            background: var(--dusty-rose);
+            width: 50%;
+            transition: width 1s var(--transition-organic);
+        }
+
+        .hero-nav {
+            position: absolute;
+            bottom: 48px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            z-index: 10;
+        }
+
+        .hero-nav button {
+            width: 44px;
+            height: 44px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            background: transparent;
+            color: #FFFFFF;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.5s var(--transition-organic);
+            border-radius: 0;
+        }
+
+        .hero-nav button:hover {
+            background: #FFFFFF;
+            color: var(--ink-black);
+            border-color: #FFFFFF;
+        }
+
+        .hero-nav button svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 140px 0;
+        }
+
+        .section-header {
+            grid-column: 1 / -1;
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            margin-bottom: 72px;
+        }
+
+        .section-header .line {
+            flex: 1;
+            height: 1px;
+            background: var(--soft-stone);
+            transition: background 0.5s var(--transition-organic);
+        }
+
+        .section-header .label {
+            white-space: nowrap;
+        }
+
+        /* Projects Grid - softer, more inviting */
+        .projects-grid {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .project-card {
+            position: relative;
+            aspect-ratio: 3/4;
+            overflow: hidden;
+            cursor: pointer;
+            background: var(--soft-stone);
+        }
+
+        .project-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.2s var(--transition-organic), opacity 0.6s var(--transition-gentle);
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(20, 20, 20, 0.5) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.6s var(--transition-gentle);
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .project-card:hover .project-image {
+            transform: scale(1.06);
+        }
+
+        .project-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 40px;
+            color: #FFFFFF;
+            transform: translateY(16px);
+            opacity: 0;
+            transition: all 0.6s var(--transition-organic);
+        }
+
+        .project-card:hover .project-info {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .project-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.75rem;
+            font-weight: 400;
+            margin-bottom: 8px;
+            letter-spacing: 0.02em;
+        }
+
+        .project-meta {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.6875rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            opacity: 0.7;
+        }
+
+        /* About Section - elegant typography */
+        .about-content {
+            grid-column: 1 / 9;
+        }
+
+        .about-lead {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+            font-weight: 300;
+            line-height: 1.5;
+            color: var(--ink-black);
+            margin-bottom: 56px;
+        }
+
+        .about-lead span {
+            color: var(--dusty-rose);
+            font-style: italic;
+        }
+
+        .about-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 56px;
+            margin-top: 72px;
+        }
+
+        .about-detail h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.6875rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--mist-grey);
+            margin-bottom: 16px;
+        }
+
+        .about-detail p {
+            font-size: 0.9375rem;
+            line-height: 1.8;
+            color: var(--ink-black);
+            font-weight: 300;
+        }
+
+        /* Services - minimal, sophisticated */
+        .services-list {
+            grid-column: 1 / -1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 44px 0;
+            border-top: 1px solid var(--soft-stone);
+            cursor: pointer;
+            transition: all 0.5s var(--transition-organic);
+        }
+
+        .service-item:last-child {
+            border-bottom: 1px solid var(--soft-stone);
+        }
+
+        .service-item:hover {
+            padding-left: 20px;
+            padding-right: 20px;
+            background: rgba(232, 229, 225, 0.3);
+        }
+
+        .service-item:hover .service-name {
+            color: var(--dusty-rose);
+        }
+
+        .service-item:hover .service-line {
+            width: 100px;
+        }
+
+        .service-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+            font-weight: 300;
+            transition: color 0.4s var(--transition-gentle);
+        }
+
+        .service-number {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            color: var(--mist-grey);
+            letter-spacing: 0.1em;
+        }
+
+        .service-line {
+            width: 0;
+            height: 1px;
+            background: var(--dusty-rose);
+            transition: width 0.6s var(--transition-organic);
+        }
+
+        /* Contact Section */
+        .contact-content {
+            grid-column: 1 / 7;
+        }
+
+        .contact-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 300;
+            margin-bottom: 56px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 36px;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.6875rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--mist-grey);
+            margin-bottom: 12px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 14px 0;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.125rem;
+            font-weight: 300;
+            color: var(--ink-black);
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid var(--soft-stone);
+            outline: none;
+            transition: border-color 0.4s var(--transition-gentle);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--dusty-rose);
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            align-self: flex-start;
+            padding: 18px 44px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.6875rem;
+            font-weight: 400;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            background: var(--dusty-rose);
+            border: none;
+            cursor: pointer;
+            transition: all 0.5s var(--transition-organic);
+            margin-top: 12px;
+        }
+
+        .submit-btn:hover {
+            background: var(--ink-black);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            padding: 72px 0;
+            border-top: 1px solid var(--soft-stone);
+            background: var(--canvas-white);
+        }
+
+        .footer-content {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .footer-info h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.6875rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--mist-grey);
+            margin-bottom: 16px;
+        }
+
+        .footer-info p {
+            font-size: 0.8125rem;
+            font-weight: 300;
+            color: var(--ink-black);
+            margin-bottom: 6px;
+            letter-spacing: 0.02em;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 28px;
+        }
+
+        .footer-social a {
+            font-size: 0.6875rem;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--ink-black);
+            text-decoration: none;
+            transition: color 0.4s var(--transition-gentle);
+        }
+
+        .footer-social a:hover {
+            color: var(--dusty-rose);
+        }
+
+        /* Animations - subtle, organic fade-in */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 1s var(--transition-organic), transform 1s var(--transition-organic);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-in-delay-1 { transition-delay: 0.15s; }
+        .fade-in-delay-2 { transition-delay: 0.3s; }
+        .fade-in-delay-3 { transition-delay: 0.45s; }
+        .fade-in-delay-4 { transition-delay: 0.6s; }
+
+        /* Mobile Menu - elegant overlay */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--canvas-white);
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.6s var(--transition-organic);
+        }
+
+        .mobile-menu.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-menu-items {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .mobile-menu-item {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 300;
+            color: var(--ink-black);
+            text-decoration: none;
+            transition: color 0.4s var(--transition-gentle);
+        }
+
+        .mobile-menu-item:hover {
+            color: var(--dusty-rose);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            :root {
+                --margin: 4vw;
+            }
+
+            section {
+                padding: 100px 0;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content {
+                grid-column: 1 / -1;
+            }
+
+            .contact-content {
+                grid-column: 1 / -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --margin: 24px;
+                --grid-gutter: 16px;
+            }
+
+            section {
+                padding: 72px 0;
+            }
+
+            nav {
+                height: 60px;
+            }
+
+            .hero-content {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+                bottom: 80px;
+            }
+
+            .hero-title {
+                max-width: 100%;
+                font-size: 2.25rem;
+            }
+
+            .hero-meta {
+                text-align: left;
+            }
+
+            .about-details {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .service-name {
+                font-size: 1.5rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Grid Lines (toggleable) -->
+    <div class="grid-lines" id="gridLines">
+        <div class="grid-line" style="left: 5%"></div>
+        <div class="grid-line" style="left: 10%"></div>
+        <div class="grid-line" style="left: 15%"></div>
+        <div class="grid-line" style="left: 20%"></div>
+        <div class="grid-line" style="left: 25%"></div>
+        <div class="grid-line" style="left: 30%"></div>
+        <div class="grid-line" style="left: 35%"></div>
+        <div class="grid-line" style="left: 40%"></div>
+        <div class="grid-line" style="left: 45%"></div>
+        <div class="grid-line" style="left: 50%"></div>
+        <div class="grid-line" style="left: 55%"></div>
+        <div class="grid-line" style="left: 60%"></div>
+        <div class="grid-line" style="left: 65%"></div>
+        <div class="grid-line" style="left: 70%"></div>
+        <div class="grid-line" style="left: 75%"></div>
+        <div class="grid-line" style="left: 80%"></div>
+        <div class="grid-line" style="left: 85%"></div>
+        <div class="grid-line" style="left: 90%"></div>
+        <div class="grid-line" style="left: 95%"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="#" class="logo">FORMA & RAUM</a>
+        <button class="menu-toggle" id="menuToggle">
+            <span>Menu</span>
+            <span class="line"></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-items">
+            <a href="#works" class="mobile-menu-item">Projets</a>
+            <a href="#about" class="mobile-menu-item">Studio</a>
+            <a href="#services" class="mobile-menu-item">Services</a>
+            <a href="#contact" class="mobile-menu-item">Contact</a>
+        </div>
+    </div>
+
+    <!-- Hero Section - 2 images instead of 5 videos -->
+    <section class="hero" id="hero">
+        <div class="hero-slider" id="heroSlider">
+            <div class="hero-slide active">
+                <div class="hero-fallback"></div>
+                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1920&q=85" alt="Elegant interior" class="hero-image">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <h1 class="hero-title">Espaces de vie sensibles</h1>
+                    <div class="hero-meta">
+                        <div class="location">Paris, France</div>
+                        <div class="number">01 / 02</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-slide">
+                <div class="hero-fallback"></div>
+                <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1920&q=85" alt="Minimalist interior" class="hero-image">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <h1 class="hero-title">L'élégance du quotidien</h1>
+                    <div class="hero-meta">
+                        <div class="location">Lyon, France</div>
+                        <div class="number">02 / 02</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-progress">
+            <div class="hero-progress-bar" id="heroProgress"></div>
+        </div>
+        <div class="hero-nav">
+            <button id="prevSlide" aria-label="Diapositive précédente">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M15 19l-7-7 7-7"/>
+                </svg>
+            </button>
+            <button id="nextSlide" aria-label="Diapositive suivante">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M9 5l7 7-7 7"/>
+                </svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- Selected Works -->
+    <section id="works">
+        <div class="grid-container">
+            <div class="section-header fade-in">
+                <span class="label">01</span>
+                <div class="line"></div>
+                <span class="label">Projets sélectionnés</span>
+            </div>
+            <div class="projects-grid">
+                <article class="project-card fade-in fade-in-delay-1">
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&q=80" alt="The Nordic Residence" class="project-image">
+                    <div class="project-overlay"></div>
+                    <div class="project-info">
+                        <h3 class="project-title">Résidence Stockholm</h3>
+                        <span class="project-meta">Suède — 2024</span>
+                    </div>
+                </article>
+                <article class="project-card fade-in fade-in-delay-2">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" alt="Concrete House" class="project-image">
+                    <div class="project-overlay"></div>
+                    <div class="project-info">
+                        <h3 class="project-title">Maison Osaka</h3>
+                        <span class="project-meta">Japon — 2023</span>
+                    </div>
+                </article>
+                <article class="project-card fade-in fade-in-delay-3">
+                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80" alt="The Glass Pavilion" class="project-image">
+                    <div class="project-overlay"></div>
+                    <div class="project-info">
+                        <h3 class="project-title">Pavillon de verre</h3>
+                        <span class="project-meta">France — 2023</span>
+                    </div>
+                </article>
+                <article class="project-card fade-in fade-in-delay-4">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80" alt="Urban Loft" class="project-image">
+                    <div class="project-overlay"></div>
+                    <div class="project-info">
+                        <h3 class="project-title">Loft Parisien</h3>
+                        <span class="project-meta">France — 2022</span>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="grid-container">
+            <div class="section-header fade-in">
+                <span class="label">02</span>
+                <div class="line"></div>
+                <span class="label">Le Studio</span>
+            </div>
+            <div class="about-content fade-in">
+                <p class="about-lead">
+                    Nous créons des <span>espaces intemporels</span> qui transcendent les tendances, alliant minimalisme et chaleur pour concevoir des environnements où la vie se déroule avec intention et beauté.
+                </p>
+                <div class="about-details">
+                    <div class="about-detail">
+                        <h4>Philosophie</h4>
+                        <p>Notre approche repose sur la conviction que l'architecture intérieure doit servir de toile à la vie, où chaque ligne, matière et source de lumière contribue à un ensemble harmonieux.</p>
+                    </div>
+                    <div class="about-detail">
+                        <h4>Processus</h4>
+                        <p>Chaque projet commence par une écoute attentive. Nous étudions le lieu, comprenons le contexte et collaborons étroitement avec nos clients pour transformer les aspirations en réalité construite.</p>
+                    </div>
+                    <div class="about-detail">
+                        <h4>Reconnaissance</h4>
+                        <p>Design primé publié dans Architectural Digest, Elle Décor et Dwell. Notre travail a été reconnu pour l'excellence en architecture résidentielle et commerciale.</p>
+                    </div>
+                    <div class="about-detail">
+                        <h4>Équipe</h4>
+                        <p>Une équipe multidisciplinaire d'architectes, designers d'intérieur et artisans unis par une passion partagée pour le design intentionnel et l'exécution exceptionnelle.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="grid-container">
+            <div class="section-header fade-in">
+                <span class="label">03</span>
+                <div class="line"></div>
+                <span class="label">Services</span>
+            </div>
+            <div class="services-list">
+                <div class="service-item fade-in">
+                    <span class="service-number">01</span>
+                    <h3 class="service-name">Architecture d'intérieur</h3>
+                    <div class="service-line"></div>
+                </div>
+                <div class="service-item fade-in fade-in-delay-1">
+                    <span class="service-number">02</span>
+                    <h3 class="service-name">Design résidentiel</h3>
+                    <div class="service-line"></div>
+                </div>
+                <div class="service-item fade-in fade-in-delay-2">
+                    <span class="service-number">03</span>
+                    <h3 class="service-name">Direction artistique</h3>
+                    <div class="service-line"></div>
+                </div>
+                <div class="service-item fade-in fade-in-delay-3">
+                    <span class="service-number">04</span>
+                    <h3 class="service-name">Conseil et consultation</h3>
+                    <div class="service-line"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="grid-container">
+            <div class="section-header fade-in">
+                <span class="label">04</span>
+                <div class="line"></div>
+                <span class="label">Contactez-nous</span>
+            </div>
+            <div class="contact-content fade-in">
+                <h2 class="contact-title">Créons ensemble quelque chose d'extraordinaire.</h2>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Nom</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="project">Type de projet</label>
+                        <select id="project" name="project">
+                            <option value="">Sélectionner un type de projet</option>
+                            <option value="residential">Résidentiel</option>
+                            <option value="commercial">Commercial</option>
+                            <option value="interior">Design d'intérieur</option>
+                            <option value="other">Autre</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Envoyer</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="grid-container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h4>Contact</h4>
+                    <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c3aba6afafac83a5acb1aea2eeb1a2b6aeeda0acae">[email&#160;protected]</a></p>
+                    <p>+33 1 23 45 67 89</p>
+                    <p>42 Rue du Faubourg Saint-Honoré<br>75008 Paris, France</p>
+                </div>
+                <div class="footer-info">
+                    <h4>Horaires</h4>
+                    <p>Lundi — Vendredi</p>
+                    <p>9h00 — 18h00</p>
+                </div>
+                <div class="footer-social">
+                    <a href="#">Instagram</a>
+                    <a href="#">Pinterest</a>
+                    <a href="#">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Navigation Scroll Effect - subtle transition
+        const navbar = document.getElementById('navbar');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuItems = document.querySelectorAll('.mobile-menu-item');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+
+        mobileMenuItems.forEach(item => {
+            item.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // Hero Slider - 2 slides only
+        const heroSlider = document.getElementById('heroSlider');
+        const heroSlides = document.querySelectorAll('.hero-slide');
+        const heroProgress = document.getElementById('heroProgress');
+        const prevBtn = document.getElementById('prevSlide');
+        const nextBtn = document.getElementById('nextSlide');
+
+        let currentSlide = 0;
+        const totalSlides = heroSlides.length;
+
+        function updateSlider() {
+            const translate = -currentSlide * 100;
+            heroSlider.style.transform = `translateX(${translate}%)`;
+
+            // Update active class for subtle zoom effect
+            heroSlides.forEach((slide, index) => {
+                if (index === currentSlide) {
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
+                }
+            });
+
+            // Update progress bar
+            heroProgress.style.width = `${((currentSlide + 1) / totalSlides) * 100}%`;
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlider();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateSlider();
+        }
+
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+
+        // Touch/Swipe support
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        heroSlider.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        heroSlider.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    nextSlide();
+                } else {
+                    prevSlide();
+                }
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+
+        // Auto-advance every 6 seconds (slower, more elegant)
+        let autoSlideInterval = setInterval(nextSlide, 6000);
+
+        // Pause on hover
+        heroSlider.addEventListener('mouseenter', () => {
+            clearInterval(autoSlideInterval);
+        });
+
+        heroSlider.addEventListener('mouseleave', () => {
+            autoSlideInterval = setInterval(nextSlide, 6000);
+        });
+
+        // Fade-in Animations - subtle, organic
+        const fadeElements = document.querySelectorAll('.fade-in');
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const fadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        fadeElements.forEach(el => fadeObserver.observe(el));
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Grid Lines Toggle (press G key)
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'g' || e.key === 'G') {
+                const gridLines = document.getElementById('gridLines');
+                gridLines.classList.toggle('visible');
+            }
+        });
+
+        // Form submission
+        const contactForm = document.querySelector('.contact-form');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Merci pour votre message. Nous vous contacterons rapidement.');
+            contactForm.reset();
+        });
+
+        // Initialize
+        updateSlider();
+    </script>
+
+<script>
+/**
+ * Script d'injection de surbrillance pour iframe
+ * Ce script doit être intégré au site cible pour activer la fonction de surbrillance iframe cross-domaine
+ *
+ * Mode d'emploi :
+ * 1. Ajouter ce script au HTML du site cible
+ * 2. Ou injecter via une extension de navigateur / script utilisateur
+ */
+
+(function () {
+  "use strict";
+
+  // Vérifier si nous sommes dans un iframe
+  if (window.self === window.top) {
+    return; // Pas dans un iframe, ne pas exécuter
+  }
+
+  // Vérifier si déjà initialisé
+  if (window.__iframeHighlightInitialized) {
+    return;
+  }
+  window.__iframeHighlightInitialized = true;
+  console.log("Script de surbrillance iframe chargé");
+
+  // Créer le calque de surbrillance
+  var overlay = document.createElement("div");
+  overlay.id = "iframe-highlight-overlay";
+  overlay.style.cssText = "\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 100vw;\n    height: 100vh;\n    pointer-events: none;\n    z-index: 999999;\n    overflow: hidden;\n  ";
+
+  // Créer la boîte de surbrillance au survol (bordure en pointillés)
+  var highlightBox = document.createElement("div");
+  highlightBox.id = "iframe-highlight-box";
+  highlightBox.style.cssText = "\n    position: absolute;\n    border: 2px dashed #007AFF;\n    background: rgba(0, 122, 255, 0.08);\n    pointer-events: none;\n    display: none;\n    transition: all 0.1s ease;\n    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.8);\n    border-radius: 2px;\n  ";
+
+  // Créer la boîte de surbrillance permanente pour l'élément sélectionné (bordure continue)
+  var selectedBox = document.createElement("div");
+  selectedBox.id = "iframe-selected-box";
+  selectedBox.style.cssText = "\n    position: absolute;\n    border: 2px solid #007AFF;\n    pointer-events: none;\n    display: none;\n    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.9), 0 0 8px rgba(255, 107, 53, 0.4);\n    border-radius: 2px;\n    z-index: 1000000;\n  ";
+
+  // Créer l'étiquette d'affichage au survol
+  var tagLabel = document.createElement("div");
+  tagLabel.id = "iframe-tag-label";
+  tagLabel.style.cssText = "\n    position: absolute;\n    background: #007AFF;\n    color: white;\n    padding: 2px 6px;\n    font-size: 11px;\n    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;\n    border-radius: 2px;\n    pointer-events: none;\n    display: none;\n    white-space: nowrap;\n    z-index: 1000001;\n    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);\n    font-weight: 500;\n  ";
+
+  // Créer l'étiquette pour l'élément sélectionné
+  var selectedLabel = document.createElement("div");
+  selectedLabel.id = "iframe-selected-label";
+  selectedLabel.style.cssText = "\n    position: absolute;\n    background: #007AFF;\n    color: white;\n    padding: 3px 8px;\n    font-size: 11px;\n    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;\n    border-radius: 3px;\n    pointer-events: none;\n    display: none;\n    white-space: nowrap;\n    z-index: 1000002;\n    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);\n    font-weight: 600;\n  ";
+  overlay.appendChild(highlightBox);
+  overlay.appendChild(selectedBox);
+  overlay.appendChild(tagLabel);
+  overlay.appendChild(selectedLabel);
+  document.body.appendChild(overlay);
+
+  // Stocker l'élément actuellement sélectionné
+  var selectedElement = null;
+  var highlightEnabled = false;
+
+  // Mettre à jour l'affichage de surbrillance de l'élément sélectionné
+  function updateSelectedHighlight(element) {
+    console.log("updateSelectedHighlight appelé avec :", element);
+    if (!element) {
+      selectedBox.style.display = "none";
+      selectedLabel.style.display = "none";
+      selectedElement = null;
+      console.log("Surbrillance sélectionnée effacée");
+      return;
+    }
+    selectedElement = element;
+    var rect = element.getBoundingClientRect();
+    console.log("Rect de l'élément sélectionné :", rect);
+
+    // 更新选中高亮框位置
+    selectedBox.style.display = "block";
+    selectedBox.style.left = "".concat(rect.left - 2, "px");
+    selectedBox.style.top = "".concat(rect.top - 2, "px");
+    selectedBox.style.width = "".concat(rect.width + 4, "px");
+    selectedBox.style.height = "".concat(rect.height + 4, "px");
+
+    // 更新选中标签位置和内容
+    selectedLabel.style.display = "block";
+    selectedLabel.textContent = "\u2713 <".concat(element.tagName.toLowerCase(), ">");
+
+    // 计算标签位置，确保不超出视窗
+    var labelTop = rect.top - 28;
+    var labelLeft = rect.left;
+
+    // 如果标签会超出顶部，显示在元素下方
+    if (labelTop < 5) {
+      labelTop = rect.bottom + 5;
+    }
+
+    // 如果标签会超出右侧，向左调整
+    var labelWidth = selectedLabel.offsetWidth || 100; // 预估宽度
+    if (labelLeft + labelWidth > window.innerWidth - 10) {
+      labelLeft = window.innerWidth - labelWidth - 10;
+    }
+    selectedLabel.style.left = "".concat(Math.max(5, labelLeft), "px");
+    selectedLabel.style.top = "".concat(labelTop, "px");
+    console.log("Surbrillance sélectionnée positionnée à :", {
+      left: selectedBox.style.left,
+      top: selectedBox.style.top,
+      width: selectedBox.style.width,
+      height: selectedBox.style.height
+    });
+  }
+  function getElementSelector(element) {
+    if (!(element instanceof Element)) throw new Error('L\'argument doit être un élément DOM');
+    var segments = [];
+    var current = element;
+    while (current !== document.documentElement) {
+      var selector = '';
+      // Vérifier en priorité les ID uniques
+      if (current.id && document.querySelectorAll("#".concat(current.id)).length === 1) {
+        segments.unshift("#".concat(current.id));
+        break; // ID unique, pas besoin de continuer vers le haut
+      }
+
+      // Générer le sélecteur de nom de classe (prendre le premier nom de classe valide)
+      var classes = Array.from(current.classList).filter(function (c) {
+        return !c.startsWith('js-');
+      });
+      var className = classes.length > 0 ? ".".concat(classes[0]) : '';
+
+      // Générer l'index de position (nth-child)
+      var tag = current.tagName.toLowerCase();
+      if (!className) {
+        var siblings = Array.from(current.parentNode.children);
+        var index = siblings.findIndex(function (el) {
+          return el === current;
+        }) + 1;
+        selector = "".concat(tag, ":nth-child(").concat(index, ")");
+      } else {
+        selector = className;
+      }
+      segments.unshift(selector);
+      current = current.parentElement;
+    }
+
+    // Gérer l'élément racine
+    if (current === document.documentElement) {
+      segments.unshift('html');
+    }
+    return segments.join(' > ');
+  }
+
+  // Obtenir le contenu texte de l'élément
+  function getElementText(element) {
+    var _element$textContent;
+    if (element.tagName === "INPUT") {
+      return element.value || element.placeholder || "";
+    }
+    if (element.tagName === "TEXTAREA") {
+      return element.value || element.placeholder || "";
+    }
+    var text = ((_element$textContent = element.textContent) === null || _element$textContent === void 0 ? void 0 : _element$textContent.trim()) || "";
+    return text.length > 50 ? text.substring(0, 50) + "..." : text;
+  }
+
+  // Obtenir les informations d'attributs de l'élément
+  function getElementAttributes(element) {
+    var attrs = {};
+    for (var i = 0; i < element.attributes.length; i++) {
+      var attr = element.attributes[i];
+      attrs[attr.name] = attr.value;
+    }
+    return attrs;
+  }
+
+  // Gestionnaire d'événement au survol de la souris
+  function handleMouseOver(e) {
+    if (!highlightEnabled) return;
+    var target = e.target;
+    if (!target || target === overlay || target === highlightBox || target === tagLabel || target === selectedBox || target === selectedLabel) {
+      return;
+    }
+
+    // Éviter de surligner les éléments html et body
+    if (target === document.documentElement || target === document.body) {
+      return;
+    }
+
+    // Si c'est un élément déjà sélectionné, ne pas afficher la surbrillance au survol
+    if (target === selectedElement) {
+      highlightBox.style.display = "none";
+      tagLabel.style.display = "none";
+      return;
+    }
+    var rect = target.getBoundingClientRect();
+    var selector = getElementSelector(target);
+    var text = getElementText(target);
+    var attributes = getElementAttributes(target);
+
+    // Mettre à jour la position de la boîte de surbrillance au survol
+    highlightBox.style.display = "block";
+    highlightBox.style.left = "".concat(rect.left - 2, "px");
+    highlightBox.style.top = "".concat(rect.top - 2, "px");
+    highlightBox.style.width = "".concat(rect.width + 4, "px");
+    highlightBox.style.height = "".concat(rect.height + 4, "px");
+
+    // Mettre à jour la position et le contenu de l'étiquette
+    tagLabel.style.display = "block";
+    tagLabel.textContent = "<".concat(target.tagName.toLowerCase(), ">");
+
+    // Calculer la position de l'étiquette pour ne pas dépasser de la fenêtre
+    var labelTop = rect.top - 22;
+    var labelLeft = rect.left;
+
+    // Si l'étiquette dépasse le haut, l'afficher sous l'élément
+    if (labelTop < 0) {
+      labelTop = rect.bottom + 5;
+    }
+
+    // Si l'étiquette dépasse la droite, ajuster vers la gauche
+    if (labelLeft + tagLabel.offsetWidth > window.innerWidth) {
+      labelLeft = window.innerWidth - tagLabel.offsetWidth - 5;
+    }
+    tagLabel.style.left = "".concat(Math.max(0, labelLeft), "px");
+    tagLabel.style.top = "".concat(labelTop, "px");
+
+    // Envoyer un message à la fenêtre parente
+    var elementInfo = {
+      tagName: target.tagName.toLowerCase(),
+      rect: {
+        left: rect.left,
+        top: rect.top,
+        right: rect.right,
+        bottom: rect.bottom,
+        width: rect.width,
+        height: rect.height,
+        x: rect.x,
+        y: rect.y
+      },
+      selector: selector,
+      text: text,
+      attributes: attributes,
+      url: window.location.href,
+      path: window.location.pathname,
+      timestamp: Date.now()
+    };
+    try {
+      window.parent.postMessage({
+        type: "iframe-element-hover",
+        data: elementInfo,
+        source: "iframe-highlight-injector"
+      }, "*");
+    } catch (error) {
+      console.warn("Impossible d'envoyer le message à la fenêtre parent :", error);
+    }
+  }
+
+  // Gestionnaire d'événement de sortie de la souris
+  function handleMouseOut(e) {
+    if (!highlightEnabled) return;
+    var relatedTarget = e.relatedTarget;
+
+    // Si la souris se déplace vers les éléments de surbrillance, ne pas masquer la surbrillance
+    if (relatedTarget && (relatedTarget === highlightBox || relatedTarget === tagLabel || relatedTarget === overlay || relatedTarget === selectedBox || relatedTarget === selectedLabel)) {
+      return;
+    }
+    highlightBox.style.display = "none";
+    tagLabel.style.display = "none";
+    try {
+      window.parent.postMessage({
+        type: "iframe-element-hover",
+        data: null,
+        source: "iframe-highlight-injector"
+      }, "*");
+    } catch (error) {
+      console.warn("Impossible d'envoyer le message à la fenêtre parent :", error);
+    }
+  }
+
+  // Gestionnaire d'événement de clic
+  function handleClick(e) {
+    var target = e.target;
+    if (!target || target === overlay || target === highlightBox || target === tagLabel || target === selectedBox || target === selectedLabel) {
+      return;
+    }
+
+    // Éviter de traiter les éléments html et body
+    if (target === document.documentElement || target === document.body) {
+      return;
+    }
+
+    // Vérifier si c'est un élément interactif, ces éléments doivent conserver le comportement par défaut
+    var isInteractiveElement = ['input', 'textarea', 'select', 'button', 'a'].includes(target.tagName.toLowerCase());
+
+    // Si la fonction de surbrillance est activée, empêcher le comportement par défaut et la propagation des événements pour les éléments non interactifs
+    if (highlightEnabled) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    var rect = target.getBoundingClientRect();
+    var selector = getElementSelector(target);
+    var text = getElementText(target);
+    var attributes = getElementAttributes(target);
+    console.log("Élément cliqué :", {
+      tagName: target.tagName,
+      selector: selector,
+      rect: rect
+    });
+
+    // Mettre à jour immédiatement la surbrillance sélectionnée
+    updateSelectedHighlight(target);
+
+    // Masquer la surbrillance au survol car c'est maintenant l'état sélectionné
+    highlightBox.style.display = "none";
+    tagLabel.style.display = "none";
+    var elementInfo = {
+      tagName: target.tagName.toLowerCase(),
+      rect: {
+        left: rect.left,
+        top: rect.top,
+        right: rect.right,
+        bottom: rect.bottom,
+        width: rect.width,
+        height: rect.height,
+        x: rect.x,
+        y: rect.y
+      },
+      selector: selector,
+      text: text,
+      attributes: attributes,
+      url: window.location.href,
+      path: window.location.pathname,
+      timestamp: Date.now()
+    };
+    try {
+      window.parent.postMessage({
+        type: "iframe-element-click",
+        data: elementInfo,
+        source: "iframe-highlight-injector"
+      }, "*");
+    } catch (error) {
+      console.warn("Impossible d'envoyer le message à la fenêtre parent :", error);
+    }
+  }
+
+  // Écouter les messages de la fenêtre parente
+  function handleParentMessage(event) {
+    console.log("Message reçu du parent :", event.data);
+    if (event.data.type === "iframe-highlight-toggle") {
+      var enabled = event.data.enabled;
+      console.log("Bascule de surbrillance :", enabled);
+      if (enabled) {
+        enableHighlight();
+      } else {
+        disableHighlight();
+      }
+    } else if (event.data.type === "enable-iframe-highlight") {
+      console.log("Activer la surbrillance iframe");
+      enableHighlight();
+    } else if (event.data.type === "disable-iframe-highlight") {
+      console.log("Désactiver la surbrillance iframe");
+      disableHighlight();
+    } else if (event.data.type === "toggle-iframe-highlight") {
+      var _enabled = event.data.enabled !== undefined ? event.data.enabled : !highlightEnabled;
+      console.log("Basculer la surbrillance iframe vers :", _enabled);
+      if (_enabled) {
+        enableHighlight();
+      } else {
+        disableHighlight();
+      }
+    } else if (event.data.type === "update-selected-element") {
+      var selector = event.data.selector;
+      console.log("Mettre à jour l'élément sélectionné avec le sélecteur :", selector);
+      if (selector) {
+        try {
+          var element = document.querySelector(selector);
+          console.log("Élément trouvé par le sélecteur :", element);
+          updateSelectedHighlight(element);
+        } catch (error) {
+          console.warn("Échec de la sélection de l'élément :", error);
+          updateSelectedHighlight(null);
+        }
+      } else {
+        updateSelectedHighlight(null);
+      }
+    } else if (event.data.type === "clear-selected-element") {
+      console.log("Effacer l'élément sélectionné");
+      updateSelectedHighlight(null);
+    }
+  }
+
+  // Activer la fonction de surbrillance
+  function enableHighlight() {
+    console.log("Activation de la surbrillance");
+    document.addEventListener("mouseover", handleMouseOver, true);
+    document.addEventListener("mouseout", handleMouseOut, true);
+    document.addEventListener("click", handleClick, true);
+    highlightEnabled = true;
+    overlay.style.display = "block";
+  }
+
+  // Désactiver la fonction de surbrillance
+  function disableHighlight() {
+    console.log("Désactivation de la surbrillance");
+    highlightEnabled = false;
+    // Garder les écouteurs d'événements mais contrôler le comportement via la variable highlightEnabled
+    // Cela permet de conserver l'affichage de l'état sélectionné
+    highlightBox.style.display = "none";
+    tagLabel.style.display = "none";
+    // Ne pas masquer selectedBox et selectedLabel, conserver l'état sélectionné
+  }
+
+  // Désactiver complètement la fonction de surbrillance (retirer tous les écouteurs)
+  function fullyDisableHighlight() {
+    console.log("Désactivation complète de la surbrillance");
+    highlightEnabled = false;
+    document.removeEventListener("mouseover", handleMouseOver, true);
+    document.removeEventListener("mouseout", handleMouseOut, true);
+    document.removeEventListener("click", handleClick, true);
+    overlay.style.display = "none";
+    highlightBox.style.display = "none";
+    tagLabel.style.display = "none";
+    selectedBox.style.display = "none";
+    selectedLabel.style.display = "none";
+  }
+
+  // Ajouter les écouteurs d'événements
+  enableHighlight();
+  window.addEventListener("message", handleParentMessage);
+
+  // Exposer les fonctions globales pour un appel externe
+  window.__iframeHighlightControl = {
+    enable: enableHighlight,
+    disable: disableHighlight,
+    fullyDisable: fullyDisableHighlight,
+    isEnabled: function isEnabled() {
+      return highlightEnabled;
+    },
+    getSelectedElement: function getSelectedElement() {
+      return selectedElement;
+    },
+    updateSelected: updateSelectedHighlight,
+    // Contrôler via l'envoi de messages
+    sendToggleMessage: function sendToggleMessage(enabled) {
+      window.parent.postMessage({
+        type: 'iframe-highlight-status',
+        enabled: enabled || highlightEnabled,
+        source: 'iframe-highlight-injector'
+      }, '*');
+    }
+  };
+
+  //Notifier la fenêtre parente que le script est chargé
+  try {
+    window.parent.postMessage({
+      type: "iframe-highlight-ready",
+      data: {
+        url: window.location.href,
+        userAgent: navigator.userAgent,
+        timestamp: Date.now()
+      },
+      source: "iframe-highlight-injector"
+    }, "*");
+  } catch (error) {
+    console.warn("Impossible d'envoyer le message de prêt à la fenêtre parent :", error);
+  }
+
+  // Fonction de nettoyage
+  window.__iframeHighlightCleanup = function () {
+    fullyDisableHighlight();
+    window.removeEventListener("message", handleParentMessage);
+    if (overlay.parentElement) {
+      overlay.parentElement.removeChild(overlay);
+    }
+    delete window.__iframeHighlightInitialized;
+    delete window.__iframeHighlightCleanup;
+  };
+})();
+
+</script>
+
+<script>
+/**
+ * Script d'injection de surbrillance pour iframe
+ * Ce script doit être intégré au site cible pour activer la fonction de surbrillance iframe cross-domaine
+ *
+ * Mode d'emploi :
+ * 1. Ajouter ce script au HTML du site cible
+ * 2. Ou injecter via une extension de navigateur / script utilisateur
+ */
+
+(function () {
+  "use strict";
+
+  // Vérifier si nous sommes dans un iframe
+  if (window.self === window.top) {
+    return; // Pas dans un iframe, ne pas exécuter
+  }
+
+  // Vérifier si déjà initialisé
+  if (window.__iframeHighlightInitialized) {
+    return;
+  }
+  window.__iframeHighlightInitialized = true;
+  console.log("Script de surbrillance iframe chargé");
+
+  // Créer le calque de surbrillance
+  var overlay = document.createElement("div");
+  overlay.id = "iframe-highlight-overlay";
+  overlay.style.cssText = "\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 100vw;\n    height: 100vh;\n    pointer-events: none;\n    z-index: 999999;\n    overflow: hidden;\n  ";
+
+  // Créer la boîte de surbrillance au survol (bordure en pointillés)
+  var highlightBox = document.createElement("div");
+  highlightBox.id = "iframe-highlight-box";
+  highlightBox.style.cssText = "\n    position: absolute;\n    border: 2px dashed #007AFF;\n    background: rgba(0, 122, 255, 0.08);\n    pointer-events: none;\n    display: none;\n    transition: all 0.1s ease;\n    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.8);\n    border-radius: 2px;\n  ";
+
+  // Créer la boîte de surbrillance permanente pour l'élément sélectionné (bordure continue)
+  var selectedBox = document.createElement("div");
+  selectedBox.id = "iframe-selected-box";
+  selectedBox.style.cssText = "\n    position: absolute;\n    border: 2px solid #007AFF;\n    pointer-events: none;\n    display: none;\n    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.9), 0 0 8px rgba(255, 107, 53, 0.4);\n    border-radius: 2px;\n    z-index: 1000000;\n  ";
+
+  // Créer l'étiquette d'affichage au survol
+  var tagLabel = document.createElement("div");
+  tagLabel.id = "iframe-tag-label";
+  tagLabel.style.cssText = "\n    position: absolute;\n    background: #007AFF;\n    color: white;\n    padding: 2px 6px;\n    font-size: 11px;\n    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;\n    border-radius: 2px;\n    pointer-events: none;\n    display: none;\n    white-space: nowrap;\n    z-index: 1000001;\n    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);\n    font-weight: 500;\n  ";
+
+  // Créer l'étiquette pour l'élément sélectionné
+  var selectedLabel = document.createElement("div");
+  selectedLabel.id = "iframe-selected-label";
+  selectedLabel.style.cssText = "\n    position: absolute;\n    background: #007AFF;\n    color: white;\n    padding: 3px 8px;\n    font-size: 11px;\n    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;\n    border-radius: 3px;\n    pointer-events: none;\n    display: none;\n    white-space: nowrap;\n    z-index: 1000002;\n    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);\n    font-weight: 600;\n  ";
+  overlay.appendChild(highlightBox);
+  overlay.appendChild(selectedBox);
+  overlay.appendChild(tagLabel);
+  overlay.appendChild(selectedLabel);
+  document.body.appendChild(overlay);
+
+  // Stocker l'élément actuellement sélectionné
+  var selectedElement = null;
+  var highlightEnabled = false;
+
+  // Mettre à jour l'affichage de surbrillance de l'élément sélectionné
+  function updateSelectedHighlight(element) {
+    console.log("updateSelectedHighlight appelé avec :", element);
+    if (!element) {
+      selectedBox.style.display = "none";
+      selectedLabel.style.display = "none";
+      selectedElement = null;
+      console.log("Surbrillance sélectionnée effacée");
+      return;
+    }
+    selectedElement = element;
+    var rect = element.getBoundingClientRect();
+    console.log("Rect de l'élément sélectionné :", rect);
+
+    // Mettre à jour la position de la boîte de surbrillance sélectionnée
+    selectedBox.style.display = "block";
+    selectedBox.style.left = "".concat(rect.left - 2, "px");
+    selectedBox.style.top = "".concat(rect.top - 2, "px");
+    selectedBox.style.width = "".concat(rect.width + 4, "px");
+    selectedBox.style.height = "".concat(rect.height + 4, "px");
+
+    // Mettre à jour la position et le contenu de l'étiquette sélectionnée
+    selectedLabel.style.display = "block";
+    selectedLabel.textContent = "\u2713 <".concat(element.tagName.toLowerCase(), ">");
+
+    // Calculer la position de l'étiquette pour ne pas dépasser de la fenêtre
+    var labelTop = rect.top - 28;
+    var labelLeft = rect.left;
+
+    // Si l'étiquette dépasse le haut, l'afficher sous l'élément
+    if (labelTop < 5) {
+      labelTop = rect.bottom + 5;
+    }
+
+    // Si l'étiquette dépasse la droite, ajuster vers la gauche
+    var labelWidth = selectedLabel.offsetWidth || 100; // Largeur estimée
+    if (labelLeft + labelWidth > window.innerWidth - 10) {
+      labelLeft = window.innerWidth - labelWidth - 10;
+    }
+    selectedLabel.style.left = "".concat(Math.max(5, labelLeft), "px");
+    selectedLabel.style.top = "".concat(labelTop, "px");
+    console.log("Surbrillance sélectionnée positionnée à :", {
+      left: selectedBox.style.left,
+      top: selectedBox.style.top,
+      width: selectedBox.style.width,
+      height: selectedBox.style.height
+    });
+  }
+  function getElementSelector(element) {
+    if (!(element instanceof Element)) throw new Error('L\'argument doit être un élément DOM');
+    var segments = [];
+    var current = element;
+    while (current !== document.documentElement) {
+      var selector = '';
+      // Vérifier en priorité les ID uniques
+      if (current.id && document.querySelectorAll("#".concat(current.id)).length === 1) {
+        segments.unshift("#".concat(current.id));
+        break; // ID unique, pas besoin de continuer vers le haut
+      }
+
+      // Générer le sélecteur de nom de classe (prendre le premier nom de classe valide)
+      var classes = Array.from(current.classList).filter(function (c) {
+        return !c.startsWith('js-');
+      });
+      var className = classes.length > 0 ? ".".concat(classes[0]) : '';
+
+      // Générer l'index de position (nth-child)
+      var tag = current.tagName.toLowerCase();
+      if (!className) {
+        var siblings = Array.from(current.parentNode.children);
+        var index = siblings.findIndex(function (el) {
+          return el === current;
+        }) + 1;
+        selector = "".concat(tag, ":nth-child(").concat(index, ")");
+      } else {
+        selector = className;
+      }
+      segments.unshift(selector);
+      current = current.parentElement;
+    }
+
+    // Gérer l'élément racine
+    if (current === document.documentElement) {
+      segments.unshift('html');
+    }
+    return segments.join(' > ');
+  }
+
+  // Obtenir le contenu texte de l'élément
+  function getElementText(element) {
+    var _element$textContent;
+    if (element.tagName === "INPUT") {
+      return element.value || element.placeholder || "";
+    }
+    if (element.tagName === "TEXTAREA") {
+      return element.value || element.placeholder || "";
+    }
+    var text = ((_element$textContent = element.textContent) === null || _element$textContent === void 0 ? void 0 : _element$textContent.trim()) || "";
+    return text.length > 50 ? text.substring(0, 50) + "..." : text;
+  }
+
+  // Obtenir les informations d'attributs de l'élément
+  function getElementAttributes(element) {
+    var attrs = {};
+    for (var i = 0; i < element.attributes.length; i++) {
+      var attr = element.attributes[i];
+      attrs[attr.name] = attr.value;
+    }
+    return attrs;
+  }
+
+  // Gestionnaire d'événement au survol de la souris
+  function handleMouseOver(e) {
+    if (!highlightEnabled) return;
+    var target = e.target;
+    if (!target || target === overlay || target === highlightBox || target === tagLabel || target === selectedBox || target === selectedLabel) {
+      return;
+    }
+
+    // Éviter de surligner les éléments html et body
+    if (target === document.documentElement || target === document.body) {
+      return;
+    }
+
+    // Si c'est un élément déjà sélectionné, ne pas afficher la surbrillance au survol
+    if (target === selectedElement) {
+      highlightBox.style.display = "none";
+      tagLabel.style.display = "none";
+      return;
+    }
+    var rect = target.getBoundingClientRect();
+    var selector = getElementSelector(target);
+    var text = getElementText(target);
+    var attributes = getElementAttributes(target);
+
+    // Mettre à jour la position de la boîte de surbrillance au survol
+    highlightBox.style.display = "block";
+    highlightBox.style.left = "".concat(rect.left - 2, "px");
+    highlightBox.style.top = "".concat(rect.top - 2, "px");
+    highlightBox.style.width = "".concat(rect.width + 4, "px");
+    highlightBox.style.height = "".concat(rect.height + 4, "px");
+
+    // Mettre à jour la position et le contenu de l'étiquette
+    tagLabel.style.display = "block";
+    tagLabel.textContent = "<".concat(target.tagName.toLowerCase(), ">");
+
+    // Calculer la position de l'étiquette pour ne pas dépasser de la fenêtre
+    var labelTop = rect.top - 22;
+    var labelLeft = rect.left;
+
+    // Si l'étiquette dépasse le haut, l'afficher sous l'élément
+    if (labelTop < 0) {
+      labelTop = rect.bottom + 5;
+    }
+
+    // Si l'étiquette dépasse la droite, ajuster vers la gauche
+    if (labelLeft + tagLabel.offsetWidth > window.innerWidth) {
+      labelLeft = window.innerWidth - tagLabel.offsetWidth - 5;
+    }
+    tagLabel.style.left = "".concat(Math.max(0, labelLeft), "px");
+    tagLabel.style.top = "".concat(labelTop, "px");
+
+    // Envoyer un message à la fenêtre parente
+    var elementInfo = {
+      tagName: target.tagName.toLowerCase(),
+      rect: {
+        left: rect.left,
+        top: rect.top,
+        right: rect.right,
+        bottom: rect.bottom,
+        width: rect.width,
+        height: rect.height,
+        x: rect.x,
+        y: rect.y
+      },
+      selector: selector,
+      text: text,
+      attributes: attributes,
+      url: window.location.href,
+      path: window.location.pathname,
+      timestamp: Date.now()
+    };
+    try {
+      window.parent.postMessage({
+        type: "iframe-element-hover",
+        data: elementInfo,
+        source: "iframe-highlight-injector"
+      }, "*");
+    } catch (error) {
+      console.warn("Impossible d'envoyer le message à la fenêtre parent :", error);
+    }
+  }
+
+  // Gestionnaire d'événement de sortie de la souris
+  function handleMouseOut(e) {
+    if (!highlightEnabled) return;
+    var relatedTarget = e.relatedTarget;
+
+    // Si la souris se déplace vers les éléments de surbrillance, ne pas masquer la surbrillance
+    if (relatedTarget && (relatedTarget === highlightBox || relatedTarget === tagLabel || relatedTarget === overlay || relatedTarget === selectedBox || relatedTarget === selectedLabel)) {
+      return;
+    }
+    highlightBox.style.display = "none";
+    tagLabel.style.display = "none";
+    try {
+      window.parent.postMessage({
+        type: "iframe-element-hover",
+        data: null,
+        source: "iframe-highlight-injector"
+      }, "*");
+    } catch (error) {
+      console.warn("Impossible d'envoyer le message à la fenêtre parent :", error);
+    }
+  }
+
+  // Gestionnaire d'événement de clic
+  function handleClick(e) {
+    var target = e.target;
+    if (!target || target === overlay || target === highlightBox || target === tagLabel || target === selectedBox || target === selectedLabel) {
+      return;
+    }
+
+    // Éviter de traiter les éléments html et body
+    if (target === document.documentElement || target === document.body) {
+      return;
+    }
+
+    // Vérifier si c'est un élément interactif, ces éléments doivent conserver le comportement par défaut
+    var isInteractiveElement = ['input', 'textarea', 'select', 'button', 'a'].includes(target.tagName.toLowerCase());
+
+    // Si la fonction de surbrillance est activée, empêcher le comportement par défaut et la propagation des événements pour les éléments non interactifs
+    if (highlightEnabled) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    var rect = target.getBoundingClientRect();
+    var selector = getElementSelector(target);
+    var text = getElementText(target);
+    var attributes = getElementAttributes(target);
+    console.log("Élément cliqué :", {
+      tagName: target.tagName,
+      selector: selector,
+      rect: rect
+    });
+
+    // Mettre à jour immédiatement la surbrillance sélectionnée
+    updateSelectedHighlight(target);
+
+    // Masquer la surbrillance au survol car c'est maintenant l'état sélectionné
+    highlightBox.style.display = "none";
+    tagLabel.style.display = "none";
+    var elementInfo = {
+      tagName: target.tagName.toLowerCase(),
+      rect: {
+        left: rect.left,
+        top: rect.top,
+        right: rect.right,
+        bottom: rect.bottom,
+        width: rect.width,
+        height: rect.height,
+        x: rect.x,
+        y: rect.y
+      },
+      selector: selector,
+      text: text,
+      attributes: attributes,
+      url: window.location.href,
+      path: window.location.pathname,
+      timestamp: Date.now()
+    };
+    try {
+      window.parent.postMessage({
+        type: "iframe-element-click",
+        data: elementInfo,
+        source: "iframe-highlight-injector"
+      }, "*");
+    } catch (error) {
+      console.warn("Impossible d'envoyer le message à la fenêtre parent :", error);
+    }
+  }
+
+  // Écouter les messages de la fenêtre parente
+  function handleParentMessage(event) {
+    console.log("Message reçu du parent :", event.data);
+    if (event.data.type === "iframe-highlight-toggle") {
+      var enabled = event.data.enabled;
+      console.log("Bascule de surbrillance :", enabled);
+      if (enabled) {
+        enableHighlight();
+      } else {
+        disableHighlight();
+      }
+    } else if (event.data.type === "enable-iframe-highlight") {
+      console.log("Activer la surbrillance iframe");
+      enableHighlight();
+    } else if (event.data.type === "disable-iframe-highlight") {
+      console.log("Désactiver la surbrillance iframe");
+      disableHighlight();
+    } else if (event.data.type === "toggle-iframe-highlight") {
+      var _enabled = event.data.enabled !== undefined ? event.data.enabled : !highlightEnabled;
+      console.log("Basculer la surbrillance iframe vers :", _enabled);
+      if (_enabled) {
+        enableHighlight();
+      } else {
+        disableHighlight();
+      }
+    } else if (event.data.type === "update-selected-element") {
+      var selector = event.data.selector;
+      console.log("Mettre à jour l'élément sélectionné avec le sélecteur :", selector);
+      if (selector) {
+        try {
+          var element = document.querySelector(selector);
+          console.log("Élément trouvé par le sélecteur :", element);
+          updateSelectedHighlight(element);
+        } catch (error) {
+          console.warn("Échec de la sélection de l'élément :", error);
+          updateSelectedHighlight(null);
+        }
+      } else {
+        updateSelectedHighlight(null);
+      }
+    } else if (event.data.type === "clear-selected-element") {
+      console.log("Effacer l'élément sélectionné");
+      updateSelectedHighlight(null);
+    }
+  }
+
+  // Activer la fonction de surbrillance
+  function enableHighlight() {
+    console.log("Activation de la surbrillance");
+    document.addEventListener("mouseover", handleMouseOver, true);
+    document.addEventListener("mouseout", handleMouseOut, true);
+    document.addEventListener("click", handleClick, true);
+    highlightEnabled = true;
+    overlay.style.display = "block";
+  }
+
+  // Désactiver la fonction de surbrillance
+  function disableHighlight() {
+    console.log("Désactivation de la surbrillance");
+    highlightEnabled = false;
+    // Garder les écouteurs d'événements mais contrôler le comportement via la variable highlightEnabled
+    // Cela permet de conserver l'affichage de l'état sélectionné
+    highlightBox.style.display = "none";
+    tagLabel.style.display = "none";
+    // Ne pas masquer selectedBox et selectedLabel, conserver l'état sélectionné
+  }
+
+  // Désactiver complètement la fonction de surbrillance (retirer tous les écouteurs)
+  function fullyDisableHighlight() {
+    console.log("Désactivation complète de la surbrillance");
+    highlightEnabled = false;
+    document.removeEventListener("mouseover", handleMouseOver, true);
+    document.removeEventListener("mouseout", handleMouseOut, true);
+    document.removeEventListener("click", handleClick, true);
+    overlay.style.display = "none";
+    highlightBox.style.display = "none";
+    tagLabel.style.display = "none";
+    selectedBox.style.display = "none";
+    selectedLabel.style.display = "none";
+  }
+
+  // Ajouter les écouteurs d'événements
+  enableHighlight();
+  window.addEventListener("message", handleParentMessage);
+
+  // Exposer les fonctions globales pour un appel externe
+  window.__iframeHighlightControl = {
+    enable: enableHighlight,
+    disable: disableHighlight,
+    fullyDisable: fullyDisableHighlight,
+    isEnabled: function isEnabled() {
+      return highlightEnabled;
+    },
+    getSelectedElement: function getSelectedElement() {
+      return selectedElement;
+    },
+    updateSelected: updateSelectedHighlight,
+    // Contrôler via l'envoi de messages
+    sendToggleMessage: function sendToggleMessage(enabled) {
+      window.parent.postMessage({
+        type: 'iframe-highlight-status',
+        enabled: enabled || highlightEnabled,
+        source: 'iframe-highlight-injector'
+      }, '*');
+    }
+  };
+
+  //Notifier la fenêtre parente que le script est chargé
+  try {
+    window.parent.postMessage({
+      type: "iframe-highlight-ready",
+      data: {
+        url: window.location.href,
+        userAgent: navigator.userAgent,
+        timestamp: Date.now()
+      },
+      source: "iframe-highlight-injector"
+    }, "*");
+  } catch (error) {
+    console.warn("Impossible d'envoyer le message de prêt à la fenêtre parent :", error);
+  }
+
+  // Fonction de nettoyage
+  window.__iframeHighlightCleanup = function () {
+    fullyDisableHighlight();
+    window.removeEventListener("message", handleParentMessage);
+    if (overlay.parentElement) {
+      overlay.parentElement.removeChild(overlay);
+    }
+    delete window.__iframeHighlightInitialized;
+    delete window.__iframeHighlightCleanup;
+  };
+})();
+
+</script>
+</body>
+</html>
