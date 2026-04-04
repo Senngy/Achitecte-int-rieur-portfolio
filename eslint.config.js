@@ -3,6 +3,7 @@ import { includeIgnoreFile } from '@eslint/compat';
 import js from '@eslint/js';
 import svelte from 'eslint-plugin-svelte';
 import globals from 'globals';
+import html from 'eslint-plugin-html';
 import { fileURLToPath } from 'node:url';
 import svelteConfig from './svelte.config.js';
 
@@ -15,6 +16,7 @@ export default [
 	...svelte.configs.recommended,
 	prettier,
 	...svelte.configs.prettier,
+	...html.configs.recommended,
 	{
 		languageOptions: {
 			globals: { ...globals.browser, ...globals.node }

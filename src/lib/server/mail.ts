@@ -1,7 +1,7 @@
-import nodemailer from 'nodemailer';
+import * as nodemailer from 'nodemailer';
 import { MAIL_USER, MAIL_PASS, MAIL_TO } from '$env/static/private';
 
-export async function sendMail({ name, email, company, message }) {
+export async function sendMail({ name, email, company, message }: { name: string; email: string; company: string; message: string }) {
 	//console.log('user:', MAIL_USER);
 	//console.log('pass exists:', !!MAIL_PASS);
 	const transporter = nodemailer.createTransport({

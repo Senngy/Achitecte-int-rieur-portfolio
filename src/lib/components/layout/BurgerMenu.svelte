@@ -11,7 +11,7 @@
 
 <div class="burger-wrapper">
 	<div class="menu-links {menuOpen ? 'open' : ''}">
-		{#each links as link}
+		{#each links as link (link.label)}
 			{#if link.type === 'button'}
 				<button class="menu-link" onclick={() => handleClick(link)}>
 					{link.label}

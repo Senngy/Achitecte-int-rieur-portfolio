@@ -1,4 +1,4 @@
-import { sendMail } from '$lib/server/mail.js';
+import { sendMail } from '$lib/server/mail';
 import { fail } from '@sveltejs/kit';
 
 export function load() {
@@ -13,17 +13,22 @@ export const actions = {
         const company = data.get('company');
         const message = data.get('message');
 
-        const errors = {};
+        const errors: Record<string, string> = {};
         if (!email) errors.email = 'Email requis';
         if (!name) errors.name = 'Nom requis';
-        if (!message || message.length < 12) errors.message = 'Message trop court';
+        if (!message || (typeof message === 'string' && message.length < 12)) errors.message = 'Message trop court';
 
         if (Object.keys(errors).length > 0) { 
             return fail(400, { errors });
         }
 
         try {
-            await sendMail({ name, email, company, message });
+            await sendMail({ 
+                name: name as string, 
+                email: email as string, 
+                company: company as string, 
+                message: message as string 
+            });
             return { success: '✅ Merci pour votre message je vous réponds dès que possible'};
         } catch (e) {
             console.error('Erreur envoi mail:', e);

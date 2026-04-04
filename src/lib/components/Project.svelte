@@ -23,14 +23,14 @@
 	</div>
 	<div class="images">
 		<div class="left-images">
-			{#each images as image, i}
+			{#each images as image, i (i)}
 				{#if i % 2 === 0}
 					<img src={image.src} alt={image.alt} />
 				{/if}
 			{/each}
 		</div>
 		<div class="right-images">
-			{#each images as image, i}
+			{#each images as image, i (i)}
 				{#if i % 2 === 1}
 					<img src={image.src} alt={image.alt} />
 				{/if}

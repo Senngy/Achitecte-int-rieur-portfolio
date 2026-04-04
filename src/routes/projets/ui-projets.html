@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Noto+Serif:ital,wght@0,300;0,400;0,500;1,300&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#eee6ed",
+                        "on-primary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#f6eef5",
+                        "on-error": "#ffffff",
+                        "on-tertiary-container": "#fffbff",
+                        "tertiary-fixed": "#f2ded8",
+                        "surface-variant": "#e8e0e7",
+                        "surface-container-highest": "#e8e0e7",
+                        "on-secondary-container": "#5b6657",
+                        "surface-bright": "#fff7fe",
+                        "secondary-container": "#d8e3d1",
+                        "secondary-fixed": "#dbe6d4",
+                        "secondary": "#576153",
+                        "inverse-primary": "#d7c3b0",
+                        "outline": "#7f756d",
+                        "on-tertiary-fixed-variant": "#51443f",
+                        "primary-fixed": "#f4dfcc",
+                        "on-secondary-fixed-variant": "#3f4a3c",
+                        "surface": "#fff7fe",
+                        "on-primary-fixed": "#241a0e",
+                        "on-surface-variant": "#4d453e",
+                        "tertiary-container": "#80716c",
+                        "surface-container-low": "#f9f1f8",
+                        "on-primary-fixed-variant": "#524436",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#1e1a1f",
+                        "secondary-fixed-dim": "#bfcab8",
+                        "primary-fixed-dim": "#d7c3b0",
+                        "on-tertiary-fixed": "#231916",
+                        "on-tertiary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#d5c3bc",
+                        "on-surface": "#1e1a1f",
+                        "on-secondary-fixed": "#151e13",
+                        "inverse-surface": "#332f34",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#fff7fe",
+                        "outline-variant": "#d0c4bb",
+                        "primary": "#68594a",
+                        "surface-container": "#f3ecf2",
+                        "error-container": "#ffdad6",
+                        "on-primary-container": "#fffbff",
+                        "surface-dim": "#dfd8df",
+                        "tertiary": "#675954",
+                        "surface-tint": "#6a5c4d",
+                        "primary-container": "#827262"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Noto Serif"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .font-notoserif {
+            font-family: 'Noto Serif', serif;
+        }
+
+        .font-inter {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .perspective-1000 {
+            perspective: 1000px;
+        }
+
+        .tonal-shift {
+            background: linear-gradient(to bottom, transparent, var(--tw-surface-container-low));
+        }
+
+        .glass-nav {
+            background: rgba(255, 247, 254, 0.8);
+            backdrop-filter: blur(20px);
+        }
+
+        /* 3D Carousel Positioning Simulation */
+        .carousel-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 60vh;
+            overflow: visible;
+            position: relative;
+        }
+
+        .carousel-item {
+            position: absolute;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Layout logic for the 7-image spread */
+        .item-outer-left {
+            transform: translateX(-350px) scale(0.6) rotateY(25deg);
+            z-index: 10;
+            opacity: 0.3;
+        }
+
+        .item-mid-left {
+            transform: translateX(-220px) scale(0.75) rotateY(15deg);
+            z-index: 20;
+            opacity: 0.6;
+        }
+
+        .item-inner-left {
+            transform: translateX(-110px) scale(0.85) rotateY(5deg);
+            z-index: 30;
+            opacity: 0.8;
+        }
+
+        .item-center {
+            transform: translateX(0) scale(1) rotateY(0);
+            z-index: 40;
+            opacity: 1;
+        }
+
+        .item-inner-right {
+            transform: translateX(110px) scale(0.85) rotateY(-5deg);
+            z-index: 30;
+            opacity: 0.8;
+        }
+
+        .item-mid-right {
+            transform: translateX(220px) scale(0.75) rotateY(-15deg);
+            z-index: 20;
+            opacity: 0.6;
+        }
+
+        .item-outer-right {
+            transform: translateX(350px) scale(0.6) rotateY(-25deg);
+            z-index: 10;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-surface font-body selection:bg-primary-fixed-dim selection:text-on-primary-fixed">
+    <!-- TopAppBar -->
+    <header class="fixed top-0 w-full z-50 glass-nav">
+        <div class="flex justify-between items-center px-8 py-6 w-full max-w-full mx-auto">
+            <div class="text-xl font-medium tracking-widest text-stone-900 dark:text-stone-50 font-inter">FORMA &amp;
+                RAUM</div>
+            <nav class="hidden md:flex items-center gap-8">
+                <a class="font-notoserif font-light tracking-tight text-stone-900 dark:text-white border-b border-stone-400 dark:border-stone-500 pb-1"
+                    href="#">Projects</a>
+                <a class="font-notoserif font-light tracking-tight text-stone-50 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 transition-colors"
+                    href="#">Philosophy</a>
+                <a class="font-notoserif font-light tracking-tight text-stone-50 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 transition-colors"
+                    href="#">Atelier</a>
+                <a class="font-notoserif font-light tracking-tight text-stone-50 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 transition-colors"
+                    href="#">Contact</a>
+            </nav>
+            <div class="flex items-center gap-4">
+                <button
+                    class="material-symbols-outlined text-stone-800 dark:text-stone-100 hover:opacity-70 transition-opacity">menu</button>
+            </div>
+        </div>
+    </header>
+    <main class="pt-32 pb-24">
+        <!-- Section Header -->
+        <div class="px-8 mb-16 text-center">
+            <h1 class="font-headline text-5xl md:text-7xl font-light tracking-tighter text-on-surface mb-4">Selected
+                Works</h1>
+            <div class="flex items-center justify-center gap-2">
+                <span class="w-12 h-[1px] bg-outline-variant/40"></span>
+                <span class="font-label text-[10px] uppercase tracking-[0.2em] text-outline">Portfolio 2024</span>
+                <span class="w-12 h-[1px] bg-outline-variant/40"></span>
+            </div>
+        </div>
+        <!-- 3D Sculpture Carousel -->
+        <section
+            class="relative perspective-1000 w-full max-w-7xl mx-auto mb-24 h-[614px] flex items-center justify-center overflow-hidden">
+            <div class="carousel-container w-full">
+                <!-- Image 1 Outer Left -->
+                <div class="carousel-item item-outer-left">
+                    <img class="w-[400px] aspect-[4/5] object-cover rounded shadow-2xl"
+                        data-alt="minimalist architectural facade with smooth white concrete and deep shadows under bright daylight"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFhZrFxZwCl1Wi2b0SFAl4xfU5vOmjKirGyMZR08lqFhfyuqZtEIaJlsqDvPEj59y2B3oSczqh-aSXz8cawXZyomN1rZVE5ZKmgK3ptm_gaKx1I2GcnWOQSt-jKdE-LiCjHfhLZeKtaICYrB6iWNAUIDXLwIDkRA6xh7qERi0E843abIP75F3_wJsmn0cMA2QgED5L7a5F75yngdtKEi5_lGUeJLFllFPkHyqBcCdXrBmeJex11SVssg7Fv8HWaPERHJcT6DNqBAc" />
+                </div>
+                <!-- Image 2 Mid Left -->
+                <div class="carousel-item item-mid-left">
+                    <img class="w-[400px] aspect-[4/5] object-cover rounded shadow-2xl"
+                        data-alt="interior view of a luxury living room with sage green velvet sofa and light oak flooring"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBfQnyLi86kDDG9U_2HwIq2Ge3HvNLRAQLK6fgJlmKNRPE3l8cM3aVFtdt6dQVeBzIu7ZET24dFGCU6IHbVoagbJzR0qt7LKSTH7ST2n57MyYqglBwqzMnZzeTA_a6EicR6HN0cMfh4MtLItR9Uqen4fNGGHcHtIzRXAV4XBt-7f9Se2jChK6yRydMdnN70r7bRWlsE5XwozYsDKtd2vOnsGhnXfrhMCZQScOW11_eXaCNnPSFWFjFfJspBU9gE36OLRaDBJyd_N0" />
+                </div>
+                <!-- Image 3 Inner Left -->
+                <div class="carousel-item item-inner-left">
+                    <img class="w-[400px] aspect-[4/5] object-cover rounded shadow-2xl"
+                        data-alt="close-up of a textured plaster wall with a simple brass light fixture and soft shadows"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoogU4draupQxNpYw40eBatZ96mj5HZkVCEe3t8zvtFAovjT9rETm8fjeM83Vercj8QBdGVE9_fNIxoCmWSPnPtfefr2tAROErrHqxt2-PIHf-GWQCoL9Lp6gZqvqTwcOB1yJO_VqbzOr7MryQVik5tZQz0_96scOGW4VrYlVdmtdVFuNabGW_uu20PkgjBoNCO6dE1EgpCFZ1aUF8Pwp3_zHxPThvowfcNuVXsAoFunK2P-QZMPZAWypBmT9shUGGUoRxA327Pio" />
+                </div>
+                <!-- Center Focus -->
+                <div class="carousel-item item-center">
+                    <div class="relative group cursor-pointer">
+                        <img class="w-[500px] aspect-[4/5] object-cover rounded shadow-2xl transition-transform duration-700 group-hover:scale-[1.02]"
+                            data-alt="grand architectural space with high ceilings large windows and minimalist furniture in warm neutral tones"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAVfLaA5Z6nYco_xDDlvVNW-GocEVaW49LhZ-H6msJhJDA3fkJv3gbXrT-ZtEAEG8Hb3ic9Ay5ho0BuyfGh9M9a4oHrqrVthOe0Xo-_LU-EHkLHJcdHu_HfXkzsLo4Tq_YM6SY9JhbBmKPRcEUhBDS6dXoyzgnVOTQ3YfZIQg_ATbZLq7LuiPLkTJYf6dKOpRB7E5gASdkv--Ozias207BPGKoyGaQXBnxp7Qxcy-aDO3OoaeoNqEe_HHDagq7Phwm6asohar0Rxc" />
+                        <div
+                            class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded">
+                        </div>
+                    </div>
+                </div>
+                <!-- Image 5 Inner Right -->
+                <div class="carousel-item item-inner-right">
+                    <img class="w-[400px] aspect-[4/5] object-cover rounded shadow-2xl"
+                        data-alt="modern kitchen with dark stone countertops and minimal wooden cabinetry in a bright airy room"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfWX6VYgT8XqaZgZgKTENJoDfimwsvjnUgLIk9kbiKJifZwUIA_C3Xc5tMd7maFTLcW7nc4jjoDHDYOHlxSQhEGLgEaI6xQHk7NvWq92V7tEIi93x8Ke4pD84eL22mTc0z_ORSNUwO_iRNhSiMwPS6zWpcJrRHY4ZO1Xw1gAG5K8rFO0abItdAeSt2W0blQ8i35R1Z7C9YjepMnlStO5ATiFDaaHDAA0EsYpHUkC_gPzvACO7CoQFtIGEhujWYEtyfO6uAlulUwv4" />
+                </div>
+                <!-- Image 6 Mid Right -->
+                <div class="carousel-item item-mid-right">
+                    <img class="w-[400px] aspect-[4/5] object-cover rounded shadow-2xl"
+                        data-alt="sophisticated bedroom with linen bedding in dusty rose and soft morning light filtering through curtains"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7jy9EdqJamgun_t-dxzq79HbAimojBTSgtDVD5sZfYLeds51m5yaoWKsNUqft-NdGLAxjqAIhVcOlNSjTHbQyuTEVftb9z0FGE3iZHMzby-GQJ_F7TZ5ezq2rN28neqwHS-HYudWuDi_IyBzR09xyD8ZTd_9dTr-ZPSQYKqacAYSUEp3JiD9hBxmpIeaQK11bUFCKk97C8W4Xx1uHDnIjkIod6rC5DN1Dnr3DAWK92pC7RZ3dR6o-n4n_1MUN-yE7QtM3036QQ4E" />
+                </div>
+                <!-- Image 7 Outer Right -->
+                <div class="carousel-item item-outer-right">
+                    <img class="w-[400px] aspect-[4/5] object-cover rounded shadow-2xl"
+                        data-alt="architectural detail of a spiral staircase made of light wood and slender steel railings"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDA6vwLgZmEMR3fLGVc8wvF1lbqx8xnsGd4FJxJw4b1LSHEUipvPNrbEHi82NI2vFG9dyoe5kvERppXHNhbXgUz5iasN5YKpTI-pR-UNxRktAT9y7nhR9r9qKSHOIm_Mlta67VHJAr6BqMhYg_BA7AxZ8IKPx_dg5WTAWG53Mf0pxGCygrSGlK3SWQETcufUgGN7FWB7GitAxMaGZxTyVu6PDJnPApM9zng4UsaMa5j1vZwcojxRgQGW2BjgteuHzdzgHkW21Iv25M" />
+                </div>
+            </div>
+        </section>
+        <!-- Project Details (Reveal Section) -->
+        <section class="max-w-4xl mx-auto px-8">
+            <div
+                class="text-center group border-t border-outline-variant/20 pt-16 hover:border-outline-variant/60 transition-colors">
+                <div class="inline-block px-3 py-1 bg-tertiary-fixed rounded-full mb-6">
+                    <span class="font-label text-[10px] text-on-tertiary-fixed-variant uppercase tracking-widest">Case
+                        Study 01</span>
+                </div>
+                <h2
+                    class="font-headline text-4xl md:text-5xl font-light text-on-surface mb-6 group-hover:italic transition-all">
+                    The Hausmann Residence</h2>
+                <p
+                    class="font-body text-on-surface-variant text-lg leading-relaxed max-w-2xl mx-auto mb-12 opacity-80 group-hover:opacity-100 transition-opacity">
+                    A dialogue between historic limestone and precision-engineered oak. Located in Zurich, this project
+                    explores the tension between weight and light through massive volumes and ethereal transitions.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4 mb-20">
+                    <span class="flex items-center gap-2 font-label text-[11px] uppercase tracking-wider text-outline">
+                        <span class="material-symbols-outlined text-sm">location_on</span> Zurich, Switzerland
+                    </span>
+                    <span class="w-1 h-1 rounded-full bg-outline-variant/40 self-center"></span>
+                    <span class="flex items-center gap-2 font-label text-[11px] uppercase tracking-wider text-outline">
+                        <span class="material-symbols-outlined text-sm">square_foot</span> 420 SQM
+                    </span>
+                    <span class="w-1 h-1 rounded-full bg-outline-variant/40 self-center"></span>
+                    <span class="flex items-center gap-2 font-label text-[11px] uppercase tracking-wider text-outline">
+                        <span class="material-symbols-outlined text-sm">calendar_today</span> 2023
+                    </span>
+                </div>
+                <button
+                    class="bg-primary text-on-primary px-10 py-4 rounded-md font-label text-[12px] uppercase tracking-[0.2em] hover:bg-primary-container transition-all">
+                    View Project Details
+                </button>
+            </div>
+        </section>
+        <!-- Bento Grid Details (Tactile Context) -->
+        <section class="mt-32 px-8 max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div
+                    class="md:col-span-2 bg-surface-container-low p-12 flex flex-col justify-end min-h-[400px] relative overflow-hidden group">
+                    <img class="absolute inset-0 w-full h-full object-cover mix-blend-multiply opacity-20 group-hover:scale-105 transition-transform duration-1000"
+                        data-alt="close-up of hand-brushed light oak wood grain with soft directional lighting"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5SOlM6PlZt-Q3UOq0MT6KY8Nn6tCjrJpwka-sgjm4cD6yWIIJJweiNINA4iJZq5IoSPQque24hqLGFHF4FH52aGkeVOI5HsJcpO9bsFo44ih1_261OrVP4hi45ihyopA-dA6dg9dDCy3oOM_IQODPaMIenp66MOvHpL8ORxQk2MuWlT_iCkuxhv4V4QZRUOAi4YjWoH5dJHYCTQiP3AZHPRHutHR1udC2GutTy4HsS_VXhandxbfx2nPYWd07_Ps9OAbRFi9vIbk" />
+                    <div class="relative z-10">
+                        <h3 class="font-headline text-3xl font-light mb-4 italic">Material Sensitivity</h3>
+                        <p class="font-body text-on-surface-variant max-w-md">Our approach begins with the raw state of
+                            materials. We source stones from Alpine quarries and timber from sustainably managed local
+                            forests.</p>
+                    </div>
+                </div>
+                <div class="bg-secondary-container p-12 flex flex-col items-center justify-center text-center">
+                    <span class="material-symbols-outlined text-4xl mb-6 text-on-secondary-container"
+                        data-weight="fill">architecture</span>
+                    <h3 class="font-headline text-2xl font-light mb-4 text-on-secondary-container">Technical Precision
+                    </h3>
+                    <p class="font-body text-on-secondary-container/80 text-sm">Every joint is a structural statement.
+                        We collaborate with master craftsmen to ensure 0.5mm tolerances.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-stone-50 dark:bg-stone-950 w-full py-12 px-8">
+        <div class="flex flex-col md:flex-row justify-between items-center w-full gap-4 max-w-7xl mx-auto">
+            <div class="font-inter text-[11px] uppercase tracking-[0.05rem] text-stone-600 dark:text-stone-400">
+                © 2024 FORMA &amp; RAUM. All rights reserved.
+            </div>
+            <div class="flex gap-8">
+                <a class="font-inter text-[11px] uppercase tracking-[0.05rem] text-stone-400 dark:text-stone-500 hover:underline decoration-stone-300 underline-offset-4 transition-all"
+                    href="#">Privacy Policy</a>
+                <a class="font-inter text-[11px] uppercase tracking-[0.05rem] text-stone-400 dark:text-stone-500 hover:underline decoration-stone-300 underline-offset-4 transition-all"
+                    href="#">Terms of Service</a>
+                <a class="font-inter text-[11px] uppercase tracking-[0.05rem] text-stone-400 dark:text-stone-500 hover:underline decoration-stone-300 underline-offset-4 transition-all"
+                    href="#">Press Kit</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

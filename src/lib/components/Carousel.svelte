@@ -82,7 +82,7 @@
 				class="track"
 				style={`transform: translateX(-${index * 100}%); transition: transform ${transitionMs}ms ease;`}
 			>
-				{#each photos as p}
+				{#each photos as p (p.src)}
 					<div class="slide">
 						<img src={p.src} alt={p.alt ?? ''} />
 					</div>

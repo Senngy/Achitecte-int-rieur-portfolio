@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Noto+Serif:ital,wght@0,300;0,400;1,300&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#fff7fe",
+                        "surface-container-highest": "#e8e0e7",
+                        "surface": "#fff7fe",
+                        "on-tertiary-fixed": "#231916",
+                        "primary-fixed-dim": "#d7c3b0",
+                        "on-tertiary-fixed-variant": "#51443f",
+                        "outline": "#7f756d",
+                        "inverse-on-surface": "#f6eef5",
+                        "tertiary-container": "#80716c",
+                        "secondary-container": "#d8e3d1",
+                        "secondary": "#576153",
+                        "surface-variant": "#e8e0e7",
+                        "on-surface-variant": "#4d453e",
+                        "secondary-fixed": "#dbe6d4",
+                        "primary-fixed": "#f4dfcc",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed": "#241a0e",
+                        "surface-container-high": "#eee6ed",
+                        "surface-container-low": "#f9f1f8",
+                        "on-secondary-container": "#5b6657",
+                        "on-primary-fixed-variant": "#524436",
+                        "background": "#fff7fe",
+                        "on-error": "#ffffff",
+                        "on-surface": "#1e1a1f",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#dfd8df",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed-variant": "#3f4a3c",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#675954",
+                        "primary-container": "#827262",
+                        "surface-tint": "#6a5c4d",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed-dim": "#d5c3bc",
+                        "primary": "#68594a",
+                        "inverse-surface": "#332f34",
+                        "secondary-fixed-dim": "#bfcab8",
+                        "outline-variant": "#d0c4bb",
+                        "surface-container": "#f3ecf2",
+                        "on-primary-container": "#fffbff",
+                        "on-tertiary-container": "#fffbff",
+                        "on-secondary-fixed": "#151e13",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#d7c3b0",
+                        "tertiary-fixed": "#f2ded8",
+                        "on-background": "#1e1a1f",
+                        "on-tertiary": "#ffffff",
+                        "dusty-rose": "#f8ecec"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Noto Serif"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fff7fe;
+            color: #1e1a1f;
+        }
+
+        h1,
+        h2,
+        h3,
+        .font-serif {
+            font-family: 'Noto Serif', serif;
+        }
+
+        .service-item-trigger:hover .service-line {
+            width: 100%;
+        }
+
+        .service-line {
+            transition: width 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 1s ease forwards;
+        }
+    </style>
+</head>
+
+<body class="bg-surface text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
+    <!-- TopAppBar -->
+    <nav
+        class="fixed top-0 w-full z-50 bg-stone-50/80 dark:bg-stone-900/80 backdrop-blur-md flex justify-between items-center px-8 py-6 max-w-full mx-auto">
+        <div class="text-xl font-light tracking-tighter text-stone-900 dark:text-stone-50 font-serif">FORMA &amp; RAUM
+        </div>
+        <div class="hidden md:flex items-center space-x-12">
+            <a class="text-stone-900 dark:text-stone-50 border-b border-stone-400/30 pb-1 text-[0.6875rem] uppercase tracking-widest font-label"
+                href="#">Portfolio</a>
+            <a class="text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 transition-colors duration-500 text-[0.6875rem] uppercase tracking-widest font-label"
+                href="#">Studio</a>
+            <a class="text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 transition-colors duration-500 text-[0.6875rem] uppercase tracking-widest font-label"
+                href="#">Materials</a>
+            <a class="text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 transition-colors duration-500 text-[0.6875rem] uppercase tracking-widest font-label"
+                href="#">Contact</a>
+        </div>
+        <button class="text-stone-800 dark:text-stone-100 hover:opacity-70 transition-opacity duration-500 ease-in-out">
+            <span class="material-symbols-outlined" data-icon="menu">menu</span>
+        </button>
+    </nav>
+    <main>
+        <!-- Hero Section -->
+        <section class="relative h-screen flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img class="w-full h-full object-cover"
+                    data-alt="Minimalist architectural interior with raw concrete walls, warm oak flooring, and soft natural sunlight streaming through a large floor-to-ceiling window."
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwdK9Kk9UW5ShTjiLyAh6kg84sKA8Hsc6csicqVwrEpY15S2ZSazdSdNJKCG7YvBRRE-7hVqsZpe515rUWE6R6lmR0eXW7Dahl7go-4Q4tB0z9vI_9LQmWcYDqyE_rsyucnjDTcO4K0JxjL6kCLvnNwq5wWa_WjVxI4B1OjPkNIX7O60a5YvKtePgcuR8QKL49QhCEOcDgFHR8s4NH5qN2DzWrd45rfITwfas7Uys879o4QlWWyhHF8cgbHZhWQcRptyjl3CATk5I" />
+                <div class="absolute inset-0 bg-on-surface/10 backdrop-brightness-95"></div>
+            </div>
+            <div class="relative z-10 text-center px-4 max-w-4xl">
+                <h1
+                    class="text-6xl md:text-8xl font-light tracking-tighter text-surface-container-lowest font-serif mb-6 opacity-90">
+                    FORMA &amp; RAUM
+                </h1>
+                <p
+                    class="text-lg md:text-xl font-light text-surface-container-lowest/80 tracking-wide font-body max-w-xl mx-auto italic">
+                    Designing spaces with organic resonance.
+                </p>
+                <div class="mt-12">
+                    <button
+                        class="bg-primary text-on-primary px-8 py-4 rounded-md text-[0.6875rem] uppercase tracking-widest font-label hover:bg-primary-container transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]">
+                        Explore Works
+                    </button>
+                </div>
+            </div>
+        </section>
+        <!-- About Snippet -->
+        <section class="py-32 px-8 md:px-24 bg-surface">
+            <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-baseline gap-12 md:gap-24">
+                <div class="w-full md:w-1/3">
+                    <span
+                        class="text-[0.6875rem] uppercase tracking-widest text-outline font-label block mb-4">Philosophy</span>
+                    <h2 class="text-4xl md:text-5xl font-light leading-tight font-serif text-on-surface italic">
+                        Sensitivity in every curve, warmth in every shadow.
+                    </h2>
+                </div>
+                <div class="w-full md:w-2/3">
+                    <p class="text-lg leading-relaxed font-body font-light text-on-surface-variant max-w-2xl">
+                        At FORMA &amp; RAUM, we believe that architecture is not merely the construction of walls, but
+                        the curation of human experience. Our studio focuses on the delicate balance between raw
+                        materiality and refined elegance. We create environments that breathe, evolving with the light
+                        of the day and the rhythm of the soul.
+                    </p>
+                    <div class="mt-8 flex gap-4">
+                        <span
+                            class="bg-tertiary-fixed text-on-tertiary-fixed px-3 py-1 rounded-full text-[0.6875rem] font-label tracking-wide">Hand-brushed
+                            Oak</span>
+                        <span
+                            class="bg-tertiary-fixed text-on-tertiary-fixed px-3 py-1 rounded-full text-[0.6875rem] font-label tracking-wide">Natural
+                            Linen</span>
+                        <span
+                            class="bg-tertiary-fixed text-on-tertiary-fixed px-3 py-1 rounded-full text-[0.6875rem] font-label tracking-wide">Patinated
+                            Brass</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Updated Services Section -->
+        <section class="relative py-48 bg-stone-100 overflow-hidden">
+            <!-- Background Image Container -->
+            <div class="absolute inset-0 z-0">
+                <img class="w-full h-full object-cover"
+                    data-alt="Minimalist architectural detail of a textured lime-washed wall with soft shadows from a branch."
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAl_rcpjcjXFeuPA9e2wvRNZSaYZ0BluIYjOBbvAOhk0l8kOCIEmEmuUV3qB4ZGqm92zosTQOcZRyCx88qHnmda-wIZxHqu6etyT7mzYe2Qxpm2jGkY1Dv6MjDyRxYOlbgX0Dv_ViR7p2uCUJa2CU7l6YhJ-uDZJVF8px6o7kBfD6YkqsOkmTFuW5TzFNR55rZh-GhGc0kMMuLsKSkSHkQr9usBe24DZBiMZAPvQtCebTqkqFTLBwol_DPWz6Vu_L3vPeVGnVzpS30" />
+                <div class="absolute inset-0 bg-stone-900/60"></div>
+            </div>
+            <div class="relative z-10 max-w-7xl mx-auto px-8">
+                <div class="flex flex-col lg:flex-row gap-20">
+                    <!-- Text & CTA -->
+                    <div class="w-full lg:w-5/12">
+                        <div class="mb-12">
+                            <span
+                                class="text-[0.6875rem] uppercase tracking-[0.2em] font-label block mb-6 text-stone-300">Savoir-faire</span>
+                            <h2 class="text-5xl font-light font-serif mb-8 leading-tight text-[#FAF9F7]">L'art de
+                                l'espace</h2>
+                            <p class="text-lg font-body font-light leading-relaxed italic max-w-md text-stone-200">Une
+                                approche sensible où chaque espace devient le miroir d'une émotion. Nous sculptons la
+                                lumière et la matière pour révéler l'âme de votre intérieur.</p>
+                        </div>
+                        <a class="inline-flex items-center gap-4 group" href="#">
+                            <span
+                                class="bg-primary text-on-primary w-12 h-12 rounded-full flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
+                                <span class="material-symbols-outlined text-sm"
+                                    data-icon="arrow_forward">arrow_forward</span>
+                            </span>
+                            <span
+                                class="text-[0.6875rem] uppercase tracking-widest font-label border-b border-[#FAF9F7]/30 pb-1 group-hover:border-primary transition-all text-[#FAF9F7]">Explore
+                                our services</span>
+                        </a>
+                    </div>
+                    <!-- Integrated Services List -->
+                    <div class="w-full lg:w-7/12 space-y-0">
+                        <!-- Service 1 -->
+                        <div
+                            class="service-item-trigger group relative border-t border-stone-100/10 py-12 transition-all duration-700 ease-in-out hover:pl-10">
+                            <div class="flex justify-between items-center pr-4">
+                                <div class="flex items-baseline gap-8">
+                                    <span
+                                        class="text-[0.6875rem] uppercase tracking-widest font-label border-b border-[#FAF9F7]/30 pb-1 group-hover:border-primary transition-all text-[#FAF9F7]">01</span>
+                                    <h3
+                                        class="text-3xl md:text-4xl font-light font-serif group-hover:text-primary transition-colors duration-500 text-[#FAF9F7]">
+                                        Architecture d'intérieur</h3>
+                                </div>
+                                <span
+                                    class="material-symbols-outlined group-hover:text-primary group-hover:translate-x-2 transition-all duration-500 text-stone-300"
+                                    data-icon="chevron_right">chevron_right</span>
+                            </div>
+                            <div class="service-line absolute bottom-0 left-0 h-[1px] bg-primary/40 w-0"></div>
+                        </div>
+                        <!-- Service 2 -->
+                        <div
+                            class="service-item-trigger group relative border-t border-stone-100/10 py-12 transition-all duration-700 ease-in-out hover:pl-10">
+                            <div class="flex justify-between items-center pr-4">
+                                <div class="flex items-baseline gap-8">
+                                    <span
+                                        class="text-[0.6875rem] uppercase tracking-widest font-label border-b border-[#FAF9F7]/30 pb-1 group-hover:border-primary transition-all text-[#FAF9F7]">02</span>
+                                    <h3
+                                        class="text-3xl md:text-4xl font-light font-serif group-hover:text-primary transition-colors duration-500 text-[#FAF9F7]">
+                                        Design résidentiel</h3>
+                                </div>
+                                <span
+                                    class="material-symbols-outlined group-hover:text-primary group-hover:translate-x-2 transition-all duration-500 text-stone-300"
+                                    data-icon="chevron_right">chevron_right</span>
+                            </div>
+                            <div class="service-line absolute bottom-0 left-0 h-[1px] bg-primary/40 w-0"></div>
+                        </div>
+                        <!-- Service 3 -->
+                        <div
+                            class="service-item-trigger group relative border-t border-stone-100/10 py-12 transition-all duration-700 ease-in-out hover:pl-10">
+                            <div class="flex justify-between items-center pr-4">
+                                <div class="flex items-baseline gap-8">
+                                    <span
+                                        class="text-[0.6875rem] uppercase tracking-widest font-label border-b border-[#FAF9F7]/30 pb-1 group-hover:border-primary transition-all text-[#FAF9F7]">03</span>
+                                    <h3
+                                        class="text-3xl md:text-4xl font-light font-serif group-hover:text-primary transition-colors duration-500 text-[#FAF9F7]">
+                                        Direction artistique</h3>
+                                </div>
+                                <span
+                                    class="material-symbols-outlined group-hover:text-primary group-hover:translate-x-2 transition-all duration-500 text-stone-300"
+                                    data-icon="chevron_right">chevron_right</span>
+                            </div>
+                            <div class="service-line absolute bottom-0 left-0 h-[1px] bg-primary/40 w-0"></div>
+                        </div>
+                        <!-- Service 4 -->
+                        <div
+                            class="service-item-trigger group relative border-t border-stone-100/10 py-12 transition-all duration-700 ease-in-out hover:pl-10">
+                            <div class="flex justify-between items-center pr-4">
+                                <div class="flex items-baseline gap-8">
+                                    <span
+                                        class="text-[0.6875rem] uppercase tracking-widest font-label border-b border-[#FAF9F7]/30 pb-1 group-hover:border-primary transition-all text-[#FAF9F7]">04</span>
+                                    <h3
+                                        class="text-3xl md:text-4xl font-light font-serif group-hover:text-primary transition-colors duration-500 text-[#FAF9F7]">
+                                        Conseil et consultation</h3>
+                                </div>
+                                <span
+                                    class="material-symbols-outlined group-hover:text-primary group-hover:translate-x-2 transition-all duration-500 text-stone-300"
+                                    data-icon="chevron_right">chevron_right</span>
+                            </div>
+                            <div class="service-line absolute bottom-0 left-0 h-[1px] bg-primary/40 w-0"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Works Preview (Bento/Masonry Hybrid) -->
+        <section class="py-32 bg-surface">
+            <div class="max-w-7xl mx-auto px-8">
+                <div class="flex justify-between items-end mb-16">
+                    <div>
+                        <span
+                            class="text-[0.6875rem] uppercase tracking-widest text-outline font-label block mb-4">Recent
+                            Projects</span>
+                        <h2 class="text-4xl font-light font-serif">The Collection</h2>
+                    </div>
+                    <a class="text-[0.6875rem] uppercase tracking-widest font-label border-b border-outline-variant/40 pb-1 hover:border-on-surface transition-colors"
+                        href="#">View All Works</a>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+                    <!-- Project 1 -->
+                    <div class="md:col-span-8 group relative overflow-hidden">
+                        <div class="aspect-[16/9] overflow-hidden">
+                            <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                                data-alt="High-end living room with a large neutral sofa, textured wool rug, and minimalist coffee table in a sunlit modern apartment."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1MQWNX27e7M_2Phy_m-bv8iqr1fxqKqaHK0Ou0a-F2ZnCiP7lVR2zrNvS5H42XZJ9npu87InAp1RsQ1Igdk7d6w13cq51AinC0MIdS8NpT24Q8t66Gpt1dqBziEvTUJwRnmAjhoGyBjcv_0WL8U9O59DoC1yFY-Kzx6A8yzSRTZqkYs4lrFK7mH6a2GbYqTg6PQcr_SGV3SI65t3ZdkxwEF03jIXllyh557wvmUOmA4_y22duLYPCOioZ9CdzyxGnZKfaeHrQzfQ" />
+                        </div>
+                        <div class="mt-6 flex justify-between items-start">
+                            <div>
+                                <h4 class="text-xl font-light font-serif">Residence No. 12</h4>
+                                <p class="text-[0.6875rem] uppercase tracking-widest text-outline font-label">Copenhagen
+                                    / 2023</p>
+                            </div>
+                            <span class="material-symbols-outlined text-outline"
+                                data-icon="north_east">north_east</span>
+                        </div>
+                    </div>
+                    <!-- Project 2 -->
+                    <div class="md:col-span-4 group relative overflow-hidden mt-12 md:mt-24">
+                        <div class="aspect-[3/4] overflow-hidden">
+                            <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                                data-alt="Detail shot of a fluted wooden kitchen island with a white marble countertop and a single ceramic vase with dried branches."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMXnB8JqZlOlvt9fpSPV3pK0uyBi5ChyWp8Ib4jrpBu-hcQwI9k43lvMZRahKyo_jiQl3Az6adlvFDv8EiY3JnP4E9jRITmKsjtnb1Llhd6_A_pbe5dKYEW005N1QiLD2LM6AbHXoe0-ShIQ7v0VoaCxu3afwOi-UujZ5qxWhx8Dlj8-qsnaqSjX44hdTX3IDNYjB0-A2VAryzg9a0jijVza30RKWpOFB2GohJbCpOjEUxBHekCXUQzHxzS7DOTvFne_Ik2iovWz8" />
+                        </div>
+                        <div class="mt-6">
+                            <h4 class="text-xl font-light font-serif">The Culinary Studio</h4>
+                            <p class="text-[0.6875rem] uppercase tracking-widest text-outline font-label">Berlin / 2024
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Project 3 -->
+                    <div class="md:col-span-4 group relative overflow-hidden">
+                        <div class="aspect-[1/1] overflow-hidden">
+                            <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                                data-alt="Bedroom with soft linen bedding in earthy tones, a simple wooden headboard, and warm atmospheric lighting."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUWaFUJhSLgq6Ek656PN-DhD2bdkT9O92ZXRkbOsvaJsazZpu_8yR55iz1nyJAyl-dG7hcY5l8u5LRqnwZbVSULsN5UN66X8wwWgpI1sioo5CRLApbRXDDFIQqLGjyxQj5uhOAMpx2l3uQU-YLcJT7NfMTlEb2mKEiIgU2FCkwUFEVaOaO-xdu252EcIF83ICZNeprf0-cEYI2g_svlZLVwWHsjkSPTaUVqiBp92UWTCE0oaEzztdaCMM03NE8XUN9wat_yLP8zL8" />
+                        </div>
+                        <div class="mt-6">
+                            <h4 class="text-xl font-light font-serif">Aura Bedroom</h4>
+                            <p class="text-[0.6875rem] uppercase tracking-widest text-outline font-label">Zurich / 2022
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Project 4 -->
+                    <div class="md:col-span-8 group relative overflow-hidden md:-mt-32">
+                        <div class="aspect-[16/10] overflow-hidden">
+                            <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                                data-alt="Modern loft with black steel window frames, polished concrete floors, and a collection of mid-century modern furniture."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqD3aOoJ2pOxcEcyN8OzyvfQXq8qXv2Jt2w62ttvp3j6-7ymsxnUTYOVXesV_Nh6g_gN2c0_mXDtwmgMSp6Uitzz030tpGm9nQIzt7Xcw-dm83oMA7XUdgbzjkK_d8k00A6UBjbP52IyQpdYOLKsYJbzXmONY9hD1tlT--b-f8RgnDCv4tTMVGvUr8Fk1WcraDztReP9vZR4A-EuY2IxVlKwplx0sWkfDYu3IWwFRni5qfsd0pdEpz5jwpCPYYBpElzIOEYaZnWCE" />
+                        </div>
+                        <div class="mt-6">
+                            <h4 class="text-xl font-light font-serif">Industrie Loft II</h4>
+                            <p class="text-[0.6875rem] uppercase tracking-widest text-outline font-label">Stockholm /
+                                2023</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Newsletter / CTA -->
+        <section class="py-32 bg-stone-100 dark:bg-stone-950 px-8">
+            <div class="max-w-3xl mx-auto text-center">
+                <span
+                    class="text-[0.6875rem] uppercase tracking-widest text-outline font-label block mb-6">Journal</span>
+                <h2 class="text-3xl md:text-4xl font-light font-serif mb-12 italic">Join our circle for seasonal
+                    reflections on design and atmosphere.</h2>
+                <form class="flex flex-col md:flex-row gap-4">
+                    <input
+                        class="bg-surface-container border-none rounded-sm px-6 py-4 flex-grow focus:ring-1 focus:ring-primary/20 text-sm font-light"
+                        placeholder="Email Address" type="email" />
+                    <button
+                        class="bg-primary text-on-primary px-10 py-4 rounded-md text-[0.6875rem] uppercase tracking-widest font-label hover:opacity-90 transition-all">Subscribe</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer
+        class="w-full mt-auto bg-stone-100 dark:bg-stone-950 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 px-12 py-20 border-t border-stone-200/10">
+        <div class="col-span-1 lg:col-span-1">
+            <div class="text-lg font-light tracking-tighter text-stone-900 dark:text-stone-50 font-serif mb-8">FORMA
+                &amp; RAUM</div>
+            <p class="text-[0.875rem] text-stone-500 dark:text-stone-400 leading-relaxed font-body">
+                Crafting resonant spaces where architecture meets the organic spirit of life.
+            </p>
+        </div>
+        <div>
+            <span
+                class="text-[0.6875rem] uppercase tracking-widest text-stone-900 dark:text-stone-50 font-label block mb-6">Studio</span>
+            <ul class="space-y-3">
+                <li><a class="text-[0.875rem] text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-50 underline underline-offset-4 decoration-stone-300/40 transition-all duration-500"
+                        href="#">Instagram</a></li>
+                <li><a class="text-[0.875rem] text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-50 underline underline-offset-4 decoration-stone-300/40 transition-all duration-500"
+                        href="#">Pinterest</a></li>
+                <li><a class="text-[0.875rem] text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-50 underline underline-offset-4 decoration-stone-300/40 transition-all duration-500"
+                        href="#">LinkedIn</a></li>
+            </ul>
+        </div>
+        <div>
+            <span
+                class="text-[0.6875rem] uppercase tracking-widest text-stone-900 dark:text-stone-50 font-label block mb-6">Contact</span>
+            <ul class="space-y-3">
+                <li class="text-[0.875rem] text-stone-500 dark:text-stone-400">info@forma-raum.studio</li>
+                <li class="text-[0.875rem] text-stone-500 dark:text-stone-400">+41 44 201 33 00</li>
+                <li class="text-[0.875rem] text-stone-500 dark:text-stone-400">Bleicherweg 10, 8002 Zürich</li>
+            </ul>
+        </div>
+        <div>
+            <span
+                class="text-[0.6875rem] uppercase tracking-widest text-stone-900 dark:text-stone-50 font-label block mb-6">Legal</span>
+            <ul class="space-y-3">
+                <li><a class="text-[0.875rem] text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-50 underline underline-offset-4 decoration-stone-300/40 transition-all duration-500"
+                        href="#">Privacy Policy</a></li>
+                <li><a class="text-[0.875rem] text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-50 underline underline-offset-4 decoration-stone-300/40 transition-all duration-500"
+                        href="#">Press Kit</a></li>
+                <li class="mt-8">
+                    <p class="text-[0.6875rem] uppercase tracking-widest text-stone-500 font-label">© 2024 FORMA &amp;
+                        RAUM. ALL RIGHTS RESERVED.</p>
+                </li>
+            </ul>
+        </div>
+    </footer>
+</body>
+
+</html>
