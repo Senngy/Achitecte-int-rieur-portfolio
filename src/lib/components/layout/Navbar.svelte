@@ -31,7 +31,7 @@
 
 <!-- Navigation -->
 <nav bind:this={nav} class:scrolled={scrolled}>
-	<a href="/" class="logo">LM DESIGN</a>
+	<a href="/" class="logo">Atelier Orée</a>
 
 	<div class="nav-controls">
 		<RevealMenu isOpen={menuOpen} {links} />

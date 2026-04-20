@@ -343,9 +343,9 @@
      font-size: 1.125rem;
      font-weight: 300;
      color: var(--ink-black);
-     background: transparent;
+     background: var(--dusty-rose);
      border: none;
-     border-bottom: 1px solid var(--soft-stone);
+     border-bottom: 1px solid var(--canvas-white);
      outline: none;
      transition: border-color 0.4s var(--transition-gentle);
  }
@@ -353,7 +353,14 @@
  .form-group input:focus,
  .form-group textarea:focus,
  .form-group select:focus {
-     border-color: var(--dusty-rose);
+     border-color: var(--soft-stone);
+     background-color: var(--soft-stone);
+ }
+
+ .form-group input:active,
+ .form-group textarea:active,
+ .form-group select:active {
+     background-color: var(--soft-stone);
  }
 
  .form-group textarea {

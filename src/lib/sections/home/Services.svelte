@@ -16,11 +16,15 @@
                     data-alt="Minimalist architectural detail of a textured lime-washed wall with soft shadows from a branch."
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuAl_rcpjcjXFeuPA9e2wvRNZSaYZ0BluIYjOBbvAOhk0l8kOCIEmEmuUV3qB4ZGqm92zosTQOcZRyCx88qHnmda-wIZxHqu6etyT7mzYe2Qxpm2jGkY1Dv6MjDyRxYOlbgX0Dv_ViR7p2uCUJa2CU7l6YhJ-uDZJVF8px6o7kBfD6YkqsOkmTFuW5TzFNR55rZh-GhGc0kMMuLsKSkSHkQr9usBe24DZBiMZAPvQtCebTqkqFTLBwol_DPWz6Vu_L3vPeVGnVzpS30" />
                 <div class="absolute inset-0 bg-stone-900/60"></div>
+                
             </div>
             <div class="relative z-10 max-w-7xl mx-auto px-8 fade-in">
+           
                 <div class="flex flex-col lg:flex-row gap-20">
                     <!-- Text & CTA -->
+                      
                     <div class="w-full lg:w-5/12">
+                        
                         <div class="mb-12">
                             <span
                                 class="text-[0.6875rem] uppercase tracking-[0.2em] font-label block mb-6 text-stone-300">Savoir-faire</span>
@@ -30,15 +34,14 @@
                                 approche sensible où chaque espace devient le miroir d'une émotion. Nous sculptons la
                                 lumière et la matière pour révéler l'âme de votre intérieur.</p>
                         </div>
-                        <a class="inline-flex items-center gap-4 group" href="#">
+                        <a class="inline-flex items-center gap-4 group" href="/services">
                             <span
                                 class="bg-primary text-on-primary w-12 h-12 rounded-full flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
                                 <span class="material-symbols-outlined text-sm"
                                     data-icon="arrow_forward">arrow_forward</span>
                             </span>
                             <span
-                                class="text-[0.6875rem] uppercase tracking-widest font-label border-b border-[#FAF9F7]/30 pb-1 group-hover:border-primary transition-all text-[#FAF9F7]">Explore
-                                our services</span>
+                                class="text-[0.6875rem] uppercase tracking-widest font-label border-b border-[#FAF9F7]/30 pb-1 group-hover:border-primary transition-all text-[#FAF9F7]">Plus de détails sur nos services</span>
                         </a>
                     </div>
                     <!-- Integrated Services List -->
@@ -51,7 +54,7 @@
                                     <span
                                         class="text-[0.6875rem] uppercase tracking-widest font-label border-b border-[#FAF9F7]/30 pb-1 group-hover:border-primary transition-all text-[#FAF9F7]">01</span>
                                     <h3
-                                        class="text-3xl md:text-4xl font-light font-serif group-hover:text-primary transition-colors duration-500 text-[#FAF9F7]">
+                                        class="text-3xl md:text-4xl font-light font-serif group-hover:text-text-hover transition-colors duration-500 text-[#FAF9F7]">
                                         Architecture d'intérieur</h3>
                                 </div>
                             </div>
@@ -65,7 +68,7 @@
                                     <span
                                         class="text-[0.6875rem] uppercase tracking-widest font-label border-b border-[#FAF9F7]/30 pb-1 group-hover:border-primary transition-all text-[#FAF9F7]">02</span>
                                     <h3
-                                        class="text-3xl md:text-4xl font-light font-serif group-hover:text-primary transition-colors duration-500 text-[#FAF9F7]">
+                                        class="text-3xl md:text-4xl font-light font-serif group-hover:text-text-hover transition-colors duration-500 text-[#FAF9F7]">
                                         Design résidentiel</h3>
                                 </div>
                             </div>
@@ -79,7 +82,7 @@
                                     <span
                                         class="text-[0.6875rem] uppercase tracking-widest font-label border-b border-[#FAF9F7]/30 pb-1 group-hover:border-primary transition-all text-[#FAF9F7]">03</span>
                                     <h3
-                                        class="text-3xl md:text-4xl font-light font-serif group-hover:text-primary transition-colors duration-500 text-[#FAF9F7]">
+                                        class="text-3xl md:text-4xl font-light font-serif group-hover:text-text-hover transition-colors duration-500 text-[#FAF9F7]">
                                         Direction artistique</h3>
                                 </div>
                             </div>
@@ -93,7 +96,7 @@
                                     <span
                                         class="text-[0.6875rem] uppercase tracking-widest font-label border-b border-[#FAF9F7]/30 pb-1 group-hover:border-primary transition-all text-[#FAF9F7]">04</span>
                                     <h3
-                                        class="text-3xl md:text-4xl font-light font-serif group-hover:text-primary transition-colors duration-500 text-[#FAF9F7]">
+                                        class="text-3xl md:text-4xl font-light font-serif group-hover:text-text-hover transition-colors duration-500 text-[#FAF9F7]">
                                         Conseil et consultation</h3>
                                 </div>
                             </div>

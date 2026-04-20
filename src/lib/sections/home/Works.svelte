@@ -5,7 +5,6 @@
     <section id="works">
         <div class="grid-container">
             <div class="section-header fade-in">
-                <span class="label">01</span>
                 <div class="line"></div>
                 <span class="label">Projets sélectionnés</span>
             </div>

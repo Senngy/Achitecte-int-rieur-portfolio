@@ -11,7 +11,6 @@
     <section id="about" class=" section fade-in">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 fade-in">
             <div class="section-header fade-in px-8">
-                <span class="label">02</span>
                 <div class="line"></div>
                 <span class="label">Laëtitia Moriceau - Architecte et designer d'intérieur</span>
             </div>
