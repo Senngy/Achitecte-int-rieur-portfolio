@@ -1,4 +1,5 @@
 import { sendMail } from '$lib/server/mail';
+import { blockedDomains } from '$lib/server/blocked-domains';
 import { fail } from '@sveltejs/kit';
 
 export function load() {
@@ -18,15 +19,27 @@ export const actions = {
         // Anti-spam silent reject
         if (honeypot) {
             console.warn('Bot detected by honeypot');
-            return { success: '✅ Merci pour votre message je vous réponds dès que possible' };
+            return { success: 'Merci pour votre message je vous réponds dès que possible' };
         }
 
         const errors: Record<string, string> = {};
-        
+
         // Regex de validation email
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!email || typeof email !== 'string' || !emailRegex.test(email)) {
             errors.email = 'Email invalide';
+        } else {
+            // Vérification des domaines indésirables SEULEMENT si l'email a l'air valide
+            const emailDomain = email.split('@')[1]?.toLowerCase();
+            const isBlocked = blockedDomains.some(domain =>
+                emailDomain === domain.toLowerCase() || emailDomain.endsWith(`.${domain.toLowerCase()}`)
+            );
+
+            if (isBlocked) {
+                console.warn(`Blocked spam domain: ${emailDomain}`);
+                // On simule une réussite pour décourager les bots qui regardent les codes d'erreur
+                return { success: 'Merci pour votre message je vous réponds dès que possible' };
+            }
         }
 
         if (!name || typeof name !== 'string' || name.trim().length < 2) errors.name = 'Nom requis (2 caractères min)';
@@ -44,7 +57,7 @@ export const actions = {
                 project: project as string,
                 message: message as string
             });
-            return { success: '✅ Merci pour votre message je vous réponds dès que possible' };
+            return { success: 'Merci pour votre message je vous réponds dès que possible' };
         } catch (e) {
             console.error('Erreur envoi mail:', e);
             return fail(500, { error: 'Une erreur est survenue lors de l’envoi du message.' });
