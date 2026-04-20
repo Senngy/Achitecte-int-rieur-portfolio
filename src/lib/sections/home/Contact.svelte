@@ -24,7 +24,7 @@ onMount(() => {
 		<div class="contact-content fade-in">
 
 			<h2 class="contact-title">
-				Créons ensemble quelque chose d'extraordinaire.
+				Créons ensemble quelque chose qui s'aligne avec vous même.
 			</h2>
 
 			{#if form?.success}
@@ -97,10 +97,10 @@ onMount(() => {
 
 					<select id="project" name="project">
 						<option value="">Sélectionner un type de projet</option>
-						<option value="residential">Résidentiel</option>
+						<option value="résidentiel">Résidentiel</option>
 						<option value="commercial">Commercial</option>
-						<option value="interior">Design d'intérieur</option>
-						<option value="other">Autre</option>
+						<option value="design-intérieur">Design d'intérieur</option>
+						<option value="autre">Autre</option>
 					</select>
 				</div>
 

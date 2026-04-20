@@ -12,7 +12,7 @@ onMount(() => {
 </script>
 
 <Navbar />
-<main class="pt-24 overflow-x-hidden">
+<main class="overflow-x-hidden">
 <!-- Hero Header -->
     <section class="relative min-h-screen flex items-center px-8 max-w-screen-2xl mx-auto fade-in">
         <div class="z-10 max-w-3xl">
@@ -170,7 +170,7 @@ onMount(() => {
             <p class="text-lg text-on-surface-variant font-light mb-12 leading-relaxed">
                 Chaque projet commence par une conversation. Contactez-nous pour une première consultation et découvrez comment nous pouvons transformer votre intérieur.
             </p>
-            <a class="inline-block bg-primary text-on-primary px-12 py-5 rounded-md font-inter text-sm uppercase tracking-[0.15em] hover:opacity-90 transition-all transform hover:-translate-y-1" href="#">
+            <a class="inline-block bg-primary text-on-primary px-12 py-5 rounded-md font-inter text-sm uppercase tracking-[0.15em] hover:opacity-90 transition-all transform hover:-translate-y-1" href="/#contact">
                 Commencer un projet
             </a>
         </div>

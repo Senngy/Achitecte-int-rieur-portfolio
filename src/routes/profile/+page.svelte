@@ -90,7 +90,7 @@ onMount(() => {
 <!-- CTA Section -->
 <section class="py-12 px-8 flex flex-col items-center text-center fade-in">
   <h3 class="font-serif text-4xl md:text-5xl font-light mb-12 tracking-tight">La vision devient réalité par <span class="italic">le dialogue.</span></h3>
-  <a class="group relative overflow-hidden bg-primary text-on-primary px-10 py-5 rounded-md transition-all duration-700 ease-in-out hover:opacity-90" href="#">
+  <a class="group relative overflow-hidden bg-primary text-on-primary px-10 py-5 rounded-md transition-all duration-700 ease-in-out hover:opacity-90" href="/#contact">
     <span class="relative z-10 text-[0.6875rem] uppercase tracking-[0.2em] font-medium">Créons quelque chose ensemble</span>
   </a>
   <div class="mt-12 flex items-center gap-8">
