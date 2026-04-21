@@ -1,85 +1,8 @@
 <script>
 
-</script>
-<!DOCTYPE html>
 
-<html class="light" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>The Stone Residence | FORMA &amp; RAUM</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Noto+Serif:ital,wght@0,300;0,400;1,300&amp;family=Cormorant+Garamond:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "surface-bright": "#fff7fe",
-                        "surface-container-highest": "#e8e0e7",
-                        "surface": "#fff7fe",
-                        "on-tertiary-fixed": "#231916",
-                        "primary-fixed-dim": "#d7c3b0",
-                        "on-tertiary-fixed-variant": "#51443f",
-                        "outline": "#7f756d",
-                        "inverse-on-surface": "#f6eef5",
-                        "tertiary-container": "#80716c",
-                        "secondary-container": "#d8e3d1",
-                        "secondary": "#576153",
-                        "surface-variant": "#e8e0e7",
-                        "on-surface-variant": "#4d453e",
-                        "secondary-fixed": "#dbe6d4",
-                        "primary-fixed": "#f4dfcc",
-                        "on-error-container": "#93000a",
-                        "on-primary-fixed": "#241a0e",
-                        "surface-container-high": "#eee6ed",
-                        "surface-container-low": "#f9f1f8",
-                        "on-secondary-container": "#5b6657",
-                        "on-primary-fixed-variant": "#524436",
-                        "background": "#fff7fe",
-                        "on-error": "#ffffff",
-                        "on-surface": "#1e1a1f",
-                        "error": "#ba1a1a",
-                        "surface-dim": "#dfd8df",
-                        "on-primary": "#ffffff",
-                        "on-secondary-fixed-variant": "#3f4a3c",
-                        "error-container": "#ffdad6",
-                        "tertiary": "#675954",
-                        "primary-container": "#827262",
-                        "surface-tint": "#6a5c4d",
-                        "surface-container-lowest": "#ffffff",
-                        "tertiary-fixed-dim": "#d5c3bc",
-                        "primary": "#68594a",
-                        "inverse-surface": "#332f34",
-                        "secondary-fixed-dim": "#bfcab8",
-                        "outline-variant": "#d0c4bb",
-                        "surface-container": "#f3ecf2",
-                        "on-primary-container": "#fffbff",
-                        "on-tertiary-container": "#fffbff",
-                        "on-secondary-fixed": "#151e13",
-                        "on-secondary": "#ffffff",
-                        "inverse-primary": "#d7c3b0",
-                        "tertiary-fixed": "#f2ded8",
-                        "on-background": "#1e1a1f",
-                        "on-tertiary": "#ffffff"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.125rem",
-                        "lg": "0.25rem",
-                        "xl": "0.5rem",
-                        "full": "0.75rem"
-                    },
-                    "fontFamily": {
-                        "headline": ["Cormorant Garamond", "Noto Serif", "serif"],
-                        "body": ["Inter", "sans-serif"],
-                        "label": ["Inter", "sans-serif"]
-                    }
-                }
-            }
-        }
-    </script>
+
+</script>
 <style>
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
@@ -91,8 +14,8 @@
             background-color: rgba(255, 247, 254, 0.8);
             backdrop-filter: blur(20px);
         }
-    </style>
-</head>
+</style>
+
 <body class="bg-surface text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
 <!-- TopAppBar -->
 <header class="fixed top-0 w-full z-50 glass-header">
@@ -286,4 +209,3 @@
 </div>
 </div>
 </footer>
-</body></html>

@@ -12,7 +12,7 @@ onMount(() => {
 </script>
 
 <Navbar />
-<main class="overflow-x-hidden">
+<main class="">
 <!-- Hero Header -->
     <section class="relative min-h-screen flex items-center px-8 max-w-screen-2xl mx-auto fade-in">
         <div class="z-10 max-w-3xl">
