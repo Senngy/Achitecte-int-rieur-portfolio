@@ -2,6 +2,7 @@
 	import '../app.css';
 
 	import favicon from '$lib/assets/favicon.svg';
+	import { reveal } from '$lib/utils/reveal';
 	
 	let { children } = $props();
 	let gridVisible = $state(false);

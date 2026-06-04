@@ -2,18 +2,22 @@
     import Navbar from "$lib/components/layout/Navbar.svelte";
     import Footer from "$lib/components/layout/Footer.svelte";
     import Carousel3D from "$lib/components/Carousel3D.svelte";
+    import ProjectDetail from "$lib/components/ProjectDetail.svelte";
     import { reveal } from '$lib/utils/reveal';
     import { onMount } from 'svelte';
     
     let { data } = $props();
     let projets = $derived(data.projets);
     let currentIndex = $state(0);
-    let activeProject = $derived(projets[currentIndex]);
 
-onMount(() => {
-    const elements = document.querySelectorAll('.fade-in');
-    elements.forEach(el => reveal(el));
-});
+    const activeProject = $derived(
+       projets?.[currentIndex] ?? {}
+    );
+
+    onMount(() => {
+      const elements = document.querySelectorAll('.fade-in');
+      elements.forEach(el => reveal(el));
+    });
 </script>
 
 <Navbar />
@@ -28,44 +32,16 @@ onMount(() => {
             </div>
         </div>
         <!-- 3D Sculpture Carousel -->
-        <Carousel3D 
-            {projets}
-            bind:currentIndex
-        />
+        
         <!-- Project Details (Reveal Section) -->
-        <section class="max-w-4xl mx-auto px-8 fade-in">
-            <div
-                class="text-center group border-t border-outline-variant/20 pt-16 hover:border-outline-variant/60 transition-colors">
-                <div class="inline-block px-3 py-1 bg-tertiary-fixed rounded-full mb-6">
-                    <span class="font-label text-[10px] text-on-tertiary-fixed-variant uppercase tracking-widest">Case
-                        Study {currentIndex + 1}</span>
-                </div>
-                <h2
-                    class="font-headline text-4xl md:text-5xl font-light text-on-surface mb-6 group-hover:italic transition-all">
-                    {activeProject.titre}</h2>
-                <p
-                    class="font-body text-on-surface-variant text-lg leading-relaxed max-w-2xl mx-auto mb-12 opacity-80 group-hover:opacity-100 transition-opacity">
-                    {activeProject.description}
-                </p>
-                <div class="flex flex-wrap justify-center gap-4 mb-20">
-                    <span class="flex items-center gap-2 font-label text-[11px] uppercase tracking-wider text-outline">
-                        <span class="material-symbols-outlined text-sm">location_on</span> {activeProject.lieu}
-                    </span>
-                    <span class="w-1 h-1 rounded-full bg-outline-variant/40 self-center"></span>
-                    <span class="flex items-center gap-2 font-label text-[11px] uppercase tracking-wider text-outline">
-                        <span class="material-symbols-outlined text-sm">square_foot</span> {activeProject.surface}
-                    </span>
-                    <span class="w-1 h-1 rounded-full bg-outline-variant/40 self-center"></span>
-                    <span class="flex items-center gap-2 font-label text-[11px] uppercase tracking-wider text-outline">
-                        <span class="material-symbols-outlined text-sm">calendar_today</span> {activeProject.annee}
-                    </span>
-                </div>
-                <a
-                    href={`/projets/${activeProject.slug}`}
-                    class="bg-primary text-on-primary px-10 py-4 rounded-md font-label text-[12px] uppercase tracking-[0.2em] hover:bg-primary-container transition-all inline-block"
-                >
-                    View Project Details
-                </a>
+        <section class="w-full mx-0 px-8 fade-in">
+            <div class="flex flex-col lg:flex-row gap-12 lg:gap-24 items-center justify-center ml-10">
+               
+                  <ProjectDetail {activeProject} />
+                
+               
+                    <Carousel3D {projets} bind:currentIndex />
+                
             </div>
         </section>
         <!-- Bento Grid Details (Tactile Context) -->

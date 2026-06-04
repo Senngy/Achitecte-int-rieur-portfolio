@@ -3,23 +3,22 @@
     import { reveal } from '$lib/utils/reveal';
     import { goto } from '$app/navigation'; // FIX 3: Importer le router
 
-    let { projets = [], autoplay = false, interval = 3000 } = $props();
-    
-    // On utilise un state local pour l'index, car on va le modifier
-    let currentIndex = $state(0);
-    
+    let { projets = [], autoplay = false, interval = 3000, currentIndex = $bindable() } = $props();
+
     let timer;
 
     // Navigate to next project
     function next() {
         if (!projets?.length) return;
         currentIndex = (currentIndex + 1) % projets.length;
+        console.log('Next index:', currentIndex);
     }
 
     // Navigate to previous project
     function prev() {
         if (!projets?.length) return;
         currentIndex = (currentIndex - 1 + projets.length) % projets.length;
+        console.log('Previous index:', currentIndex);
     }
 
     // Helper to determine position relative to active index
@@ -86,6 +85,7 @@
         } else {
             goTo(i);
         }
+        console.log('Clicked index:', i, 'Current index:', currentIndex);
     }
 
     onMount(() => {
@@ -99,7 +99,7 @@
     });
 </script>
 
-<div class="w-full max-w-[100vw] h-[100svh] min-h-[600px] overflow-hidden flex flex-col justify-center relative bg-transparent py-8 fade-in">
+<div class="w-full max-w-[100vw] h-[100svh] min-h-[600px] overflow-hidden flex flex-col justify-center relative bg-transparent py-8 pr-8 fade-in">
     <section class="relative perspective-1000 w-full flex-1 flex items-center justify-center">
         <div class="carousel-container w-full h-full relative">
             
@@ -137,14 +137,14 @@
     <!-- Navigation controls -->
     <div class="flex items-center justify-center gap-8 mt-4 shrink-0 pb-4 z-20">
         <button 
-            onclick={() => goTo((currentIndex - 1 + projets.length) % projets.length)} 
+            onclick={() => prev()} 
             class="flex items-center justify-center w-12 h-12 rounded-full border border-gray-300 text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-all duration-300 hover:scale-105 active:scale-95 shadow-sm"
             aria-label="Projet précédent"
         >
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
         </button>
         <button 
-            onclick={() => goTo((currentIndex + 1) % projets.length)} 
+            onclick={() => next()} 
             class="flex items-center justify-center w-12 h-12 rounded-full border border-gray-300 text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-all duration-300 hover:scale-105 active:scale-95 shadow-sm"
             aria-label="Projet suivant"
         >

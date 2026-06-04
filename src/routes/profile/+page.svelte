@@ -15,9 +15,9 @@ onMount(() => {
 <Navbar />
 <main class="pt-24 pb-4">
 <!-- Hero Section: The Soul of the Space -->
-  <section class="px-1 md:px-12 lg:px-24 h-screen fade-in">
+  <section class="px-1 md:px-12 lg:px-24 h-screen fade-in overflow-hidden">
     <div class="max-w-7xl mx-auto max-h-screen">
-      <div class="flex flex-col lg:flex-row items-end gap-16">
+      <div class="flex flex-col lg:flex-row gap-16 max-h-[550px]">
         <div class="w-full lg:w-4/5 order-2 lg:order-1">
           <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-light tracking-tighter leading-tight text-on-surface mb-12">
             L'âme <br/><span class="italic pl-12 md:pl-24">dans l'espace</span>
@@ -27,9 +27,9 @@ onMount(() => {
             L'architecture et le design d'intérieur reflètent la conversation silencieuse entre l'âme et l'espace. Mon objectif n'est pas seulement de créer des espaces, mais de créer des expériences qui résonnent avec les énergies qui vous définissent.
           </p>
         </div>
-        <div class="w-full lg:w-7/12 order-1 lg:order-2">
-          <div class="relative">
-            <img class="w-full object-cover rounded-sm grayscale-[20%] hover:grayscale-0 transition-all duration-1000" data-alt="Elegant portrait of a designer with short dark hair in a soft-lit architectural studio, wearing a neutral linen shirt, warm natural sunlight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4dN5_wIzWxCdillXraCbs_qqVC4aRR3mAtX3NNYKbXMelmHjIYqJz9rpX_bfoYGcG5feJnpLrEI2gF493KOi9bOBX6hnmHQ1gqFjoQaEvSKG8-XB7E7AxDs1JjJDNQyOc7RVUL63mGFUrcaMuTg4aVASUpCaAT2b0XaM6xu6UzVp91fzeqzseCo52RRH8JIbTkH38voTWtNe-LbyFdp3SHMGTR-QsXNd5Xj-DCc2NhVIchGRP4CbG4WA7ZHZnVr5insSYOD_DeWY"/>
+        <div class="w-full max-h-screen lg:w-7/12 order-1 lg:order-2">
+          <div class="relative h-full">
+            <img class="w-full h-full object-cover object-top rounded-sm grayscale-[20%] hover:grayscale-0 transition-all duration-1000" data-alt="Portrait of Laëtitia Moriceau" src="/images/profile-pic.JPG"/>
             <div class="absolute -bottom-8 -left-8 bg-surface-container-highest p-8 hidden md:block">
               <span class="text-[0.6875rem] uppercase tracking-widest block mb-2">Architecte et designer d'intérieur</span>
               <span class="font-serif text-2xl font-light italic">Laëtitia Moriceau</span>

@@ -1,12 +1,20 @@
 <script>
 import Navbar from "$lib/components/layout/Navbar.svelte";
 import Footer from "$lib/components/layout/Footer.svelte";
-
 </script>
+
+<style>
+  /* Neutralise le padding et la bordure globaux de app.css, uniquement sur cette page */
+  :global(.projet-page section) {
+    padding: 0 !important;
+    border-top: none !important;
+  }
+</style>
  <Navbar />
+<div class="projet-page">
 <main>
 <!-- Hero Section -->
-<section class="relative h-screen w-full overflow-hidden">
+<section class="relative h-[100svh] w-full overflow-hidden">
     <img class="absolute inset-0 w-full h-full object-cover" data-alt="Minimalist architectural interior with monolithic stone walls, large floor-to-ceiling windows, and soft natural evening light hitting a textured floor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOgOeyskCqghCfdN9NRPX-iklp0o0jM4UjTxtuIB3v0fonzWINYi-vbDZJCzHuJ3MXmztKk1faJwuGrB6bgfDEPg9dfJ_vMpCoAwgMwP1JpSbVcQFg3aVbHekNqliMdaoDd-ydIpj8BfNbyEWJXt01d1hK1sn2GHVTYLCWYaL0fVr9zNsOxqpN1Z0gRi_rtxHVb2KXK9OOKzvV2mo9wlzo83yXXDcnyfvJIXMHWgFIjL1K_3G8UO9h_LvPUebKhLzFIJAiJO6NajM"/>
     <div class="absolute inset-0 bg-on-surface/10"></div>
     <div class="absolute bottom-20 left-12 md:left-24 max-w-2xl">
@@ -15,35 +23,37 @@ import Footer from "$lib/components/layout/Footer.svelte";
     </div>
 </section>
 <!-- Project Details & Metadata -->
-<section class="py-32 px-8 md:px-24 bg-surface grid grid-cols-1 lg:grid-cols-12 gap-16">
-    <div class="lg:col-span-4 space-y-12">
-        <div class="space-y-2">
-            <p class="font-label text-[0.6875rem] uppercase tracking-widest text-outline">Location</p>
-            <p class="text-lg font-light text-on-surface italic font-headline">Graubünden, Switzerland</p>
+<section class="min-h-[100svh] flex flex-col justify-center py-16 px-8 md:px-24 bg-surface">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 w-full">
+        <div class="lg:col-span-4 space-y-12">
+            <div class="space-y-2">
+                <p class="font-label text-[0.6875rem] uppercase tracking-widest text-outline">Location</p>
+                <p class="text-lg font-light text-on-surface italic font-headline">Graubünden, Switzerland</p>
+            </div>
+            <div class="space-y-2">
+                <p class="font-label text-[0.6875rem] uppercase tracking-widest text-outline">Year</p>
+                <p class="text-lg font-light text-on-surface italic font-headline">2023</p>
+            </div>
+            <div class="space-y-2">
+                <p class="font-label text-[0.6875rem] uppercase tracking-widest text-outline">Services</p>
+                <p class="text-lg font-light text-on-surface italic font-headline">Interior Architecture, Material Curation</p>
+            </div>
         </div>
-        <div class="space-y-2">
-            <p class="font-label text-[0.6875rem] uppercase tracking-widest text-outline">Year</p>
-            <p class="text-lg font-light text-on-surface italic font-headline">2023</p>
-        </div>
-        <div class="space-y-2">
-            <p class="font-label text-[0.6875rem] uppercase tracking-widest text-outline">Services</p>
-            <p class="text-lg font-light text-on-surface italic font-headline">Interior Architecture, Material Curation</p>
-        </div>
-    </div>
-    <div class="lg:col-span-8">
-        <div class="max-w-2xl">
-            <h2 class="font-headline text-3xl md:text-4xl text-on-surface font-light mb-8 leading-relaxed">A Sensitive Design Approach</h2>
-            <p class="text-on-surface-variant leading-relaxed text-lg font-light mb-8">
-                        The Stone Residence was born from a desire to create a dialogue between the rugged alpine landscape and the delicate precision of contemporary living. We treated the architecture as a vessel for light, allowing the movement of the sun to define the character of the internal volumes throughout the day.
-                    </p>
-            <p class="text-on-surface-variant leading-relaxed text-lg font-light">
-                        By prioritizing raw, honest materials—hand-finished Valser stone and reclaimed mountain oak—the space achieves a monastic calm that does not sacrifice warmth. Every junction, every shadow gap, and every material transition was meticulously considered to ensure a sense of effortless permanence.
-                    </p>
+        <div class="lg:col-span-8">
+            <div class="max-w-2xl">
+                <h2 class="font-headline text-3xl md:text-4xl text-on-surface font-light mb-8 leading-relaxed">A Sensitive Design Approach</h2>
+                <p class="text-on-surface-variant leading-relaxed text-lg font-light mb-8">
+                            The Stone Residence was born from a desire to create a dialogue between the rugged alpine landscape and the delicate precision of contemporary living. We treated the architecture as a vessel for light, allowing the movement of the sun to define the character of the internal volumes throughout the day.
+                        </p>
+                <p class="text-on-surface-variant leading-relaxed text-lg font-light">
+                            By prioritizing raw, honest materials—hand-finished Valser stone and reclaimed mountain oak—the space achieves a monastic calm that does not sacrifice warmth. Every junction, every shadow gap, and every material transition was meticulously considered to ensure a sense of effortless permanence.
+                        </p>
+            </div>
         </div>
     </div>
 </section>
 <!-- Gallery - Editorial Asymmetry -->
-<section class="pb-32 px-8 md:px-24 bg-surface">
+<section class="min-h-[100svh] flex flex-col justify-center py-16 px-8 md:px-24 bg-surface">
     <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
         <!-- Large Landscape -->
         <div class="md:col-span-8 mb-12 md:mb-0">
@@ -52,14 +62,14 @@ import Footer from "$lib/components/layout/Footer.svelte";
             </div>
         </div>
         <!-- Vertical Portrait -->
-        <div class="md:col-span-4 mt-0 md:mt-24">
+        <div class="md:col-span-4 mt-0 md:mt-12">
             <div class="aspect-[3/4] overflow-hidden bg-surface-container-low rounded-sm shadow-sm">
                 <img class="w-full h-full object-cover hover:scale-105 transition-transform duration-[2000ms] ease-out" data-alt="Tall narrow vertical shot of a stone staircase with a single beam of light falling on the textured steps" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCu5-Q8lYz8o5dXgb3ASYglBEMCZPO7cyaVgzV61eIbuSmmaKtRE7jGhs_Gw7RhZbL2YKxv_N1AfO5VcxTQJUzKc1SfieJqQb9Ymf_0WvUk1iSNc9UksjP5vuTRVzvXmnQjLuymdiHKJE1SSrEsW51r6vFCSJ7zbcAv9rhiowaSyYnhLT6kJrzKNQYET7jhcq_5W2M7-KzjiNH62mRS1N0p9vHoPUPBl8lNTgL3l2kpJY8s5C_0iy53XM5YGQzk_5e8zDzqGcBmk3M"/>
             </div>
             <p class="mt-6 font-label text-[0.6875rem] uppercase tracking-widest text-outline italic">Detail of the central stairwell</p>
         </div>
         <!-- Vertical Portrait Offset -->
-        <div class="md:col-span-5 md:col-start-2 -mt-12 md:-mt-32 z-10">
+        <div class="md:col-span-5 md:col-start-2 -mt-6 md:-mt-16 z-10">
             <div class="aspect-[4/5] overflow-hidden bg-surface-container-low rounded-sm">
                 <img class="w-full h-full object-cover hover:scale-105 transition-transform duration-[2000ms] ease-out" data-alt="Interior of a serene living room with beige linen sofa, low wooden table and a view of snowy mountains" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPWPIPZreNZGA7ih6285eenIp6hp10ftT8_2RokSDciE0keG7jEdBOpcrBNPy0HuaxMsSTsbTGLevrStGp4eXXsBnxou4KdNgNmcmhQ571QPClwKVQ1CuyvrYrXcWgqGnHEWEDVTc7bsK2wVaGv2_Hg14XCfsgtDxSOmKHv-ri2xZmiu94N7cXdOHQ9f5Nb6LkdCVd-mE2G2s1XTDpdODJVaFd-Wp3Q_Aa0Xmwb7MLAL__S4VuFG6SnZ1_05EtN8fF21evTOQSwJw"/>
             </div>
@@ -73,7 +83,7 @@ import Footer from "$lib/components/layout/Footer.svelte";
     </div>
 </section>
 <!-- Materials Palette -->
-<section class="py-32 bg-surface-container-low">
+<section class="min-h-[100svh] flex flex-col justify-center py-16 bg-surface-container-low">
     <div class="px-8 md:px-24">
         <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
             <div class="max-w-md">
@@ -89,7 +99,7 @@ import Footer from "$lib/components/layout/Footer.svelte";
         <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
             <!-- Material 1 -->
             <div class="space-y-6">
-                <div class="aspect-[4/5] bg-surface-container rounded-sm overflow-hidden relative group">
+                <div class="aspect-[8/5] bg-surface-container rounded-sm overflow-hidden relative group">
                     <img class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0" data-alt="Extreme close up of grey-flecked natural granite stone with a matte finish" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUVM7MOUnm5RsYo3igdq-Qs88x9mFmqFizvJIRXUiFIGBND_CfecUkEAtAgBMzneaNwoni5wsy-n7NJH2ApEZHD7R7jjfJC1Y279vetmDR2f-1MIns5ZOxogBaOvbQJoCSooL3NrMU_BXER6d-Urng0Du_h7uKhr68g5aSTMXw-haPAy6CS77nyCOqn07VNLzqDuUkQ4MxU6IcBOfTeajyp1pRPGMrBkVY-sGbFFz-AJNkwyrG0d_Ga5O7grAXrHLN9bFLZo3K3q0"/>
                     <div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 </div>
@@ -100,7 +110,7 @@ import Footer from "$lib/components/layout/Footer.svelte";
             </div>
             <!-- Material 2 -->
             <div class="space-y-6">
-                <div class="aspect-[4/5] bg-surface-container rounded-sm overflow-hidden relative group">
+                <div class="aspect-[8/5] bg-surface-container rounded-sm overflow-hidden relative group">
                     <img class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0" data-alt="Close up of light-grained oak wood with a soft matte oil finish" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFuMeaCJnqQlAtjahMm4R1_SIOJmZZQ7ouGKEyud_ttRDuv-GbwibZzumUpTSbVt50EpT0rX9pgYwXNaPkyfnQNWZK0423qR8beDodGYlmBQ2w_tXVyYVPLevHZgULYWd104ITMC036j5OfMy58YO8hKS0Csow0WNEczJKmV9mLaZP9M7kZhHstPTleh8J02X8I0cj14sJOT5Eqx402gm47OXi6OkF3QBETfiEqCteFj8B11sImr1iuUTQu5Nax0WkqUaQomum4Og"/>
                     <div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 </div>
@@ -111,7 +121,7 @@ import Footer from "$lib/components/layout/Footer.svelte";
             </div>
             <!-- Material 3 -->
             <div class="space-y-6">
-                <div class="aspect-[4/5] bg-surface-container rounded-sm overflow-hidden relative group">
+                <div class="aspect-[8/5] bg-surface-container rounded-sm overflow-hidden relative group">
                     <img class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0" data-alt="Macro photo of heavy woven natural linen fabric in an oatmeal color" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-Kp6B948RQ5fCgGXo0MkQ1t5CGmtC4pr-0X-hcsn7L4Lx2YdHFwsLLFUriVoFCs3JwKBi1k-9P7GuOcz2-zZp2J3w1rSG6ka-rIkK0Qd9Wvrx89_l4udQRcN01zp-QkEyn3waAdgIwlwqaj38xc4Ew-zeNMW37Rv2g9T0S_zCLN0M2VZnGCgsTQpkTwdvBK70lyn_WHyu4CaFr1KwPzw5BJpmJd5Fn3ZHB2xbb7-2zcsJ08tKnJ4A_v9EupwyETGqx_LNwc4fjN0"/>
                     <div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 </div>
@@ -124,7 +134,7 @@ import Footer from "$lib/components/layout/Footer.svelte";
     </div>
 </section>
 <!-- Next Project Navigation -->
-<section class="py-48 px-8 md:px-24 bg-surface text-center">
+<section class="min-h-[100svh] flex flex-col justify-center px-8 md:px-24 bg-surface text-center">
     <a class="group block max-w-4xl mx-auto space-y-8" href="#">
         <span class="font-label text-[0.6875rem] uppercase tracking-[0.3em] text-outline">Up Next</span>
         <h2 class="font-headline text-5xl md:text-8xl text-on-surface font-light tracking-tighter leading-none group-hover:italic transition-all duration-700">The Lake Pavilion</h2>
@@ -181,3 +191,4 @@ import Footer from "$lib/components/layout/Footer.svelte";
         </div>
     </div>
 </footer>
+</div>

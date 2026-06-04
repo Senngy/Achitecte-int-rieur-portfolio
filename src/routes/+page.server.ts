@@ -1,8 +1,22 @@
 import { sendMail } from '$lib/server/mail';
 import { blockedDomains } from '$lib/server/blocked-domains';
 import { fail } from '@sveltejs/kit';
+import { projets } from '$lib/data/projets';
 
 export function load() {
+    return {
+        projets: projets.map(({ id, titre, slug, annee, type, surface, lieu, legende, imgPres }) => ({
+            id,
+            titre,
+            slug,
+            annee,
+            type,
+            surface,
+            lieu,
+            legende,
+            imgPres
+        }))
+    };
 }
 
 export const actions = {

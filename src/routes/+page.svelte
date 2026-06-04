@@ -11,7 +11,8 @@
 	import { reveal } from '$lib/utils/reveal';
 	import { slides } from '$lib/data/slides';
 
-	let { form } = $props();
+	let { form, data } = $props();
+	let projets = $derived(data.projets);
 
 onMount(() => {
     const elements = document.querySelectorAll('.fade-in');
@@ -26,7 +27,7 @@ onMount(() => {
 		<Navbar />
 		<Hero {slides}/>
 		<About />
-		<Works />
+		<Works {projets} />
 		<Services />
 		<Contact {form} />
 		<Footer />
