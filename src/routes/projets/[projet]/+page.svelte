@@ -29,7 +29,7 @@
 <main class="bg-surface text-on-surface overflow-x-hidden overflow-y-hidden">
     <!-- Hero Section -->
     <section class="animate-section relative h-screen w-full overflow-hidden fade-in">
-        <img class="absolute inset-0 w-full h-full object-cover" data-alt="{projet.titre}" src="{projet.imgPres[0]}" />
+        <img class="absolute inset-0 w-full h-full object-cover" alt="{projet.titre}" src="{projet.imgPres[0]}" />
         <div class="absolute inset-0 hero-shadow"></div>
         <div class="relative h-full flex flex-col justify-end p-12 md:p-24 space-y-8">
             <h1 class="text-white text-5xl md:text-8xl font-light font-serif tracking-tight max-w-4xl leading-tight">{projet.titre}</h1>
@@ -78,7 +78,7 @@
                     {#if projet.palettes && projet.palettes.length > 0}
                         <!-- Primary Material -->
                         <div class="md:col-span-5 aspect-[8/3] md:aspect-auto md:h-full relative overflow-hidden group">
-                            <img class="w-full h-full object-cover" data-alt="{projet.palettes[0].name || basename(projet.palettes[0].src)}" src="{projet.palettes[0].src}" />
+                            <img class="w-full h-full object-cover" alt="{projet.palettes[0].name || basename(projet.palettes[0].src)}" src="{projet.palettes[0].src}" />
                             <div class="absolute bottom-4 left-4 px-3 py-1 bg-surface/90 backdrop-blur rounded-full">
                                 <span class="text-[0.625rem] uppercase tracking-widest text-on-surface">{projet.palettes[0].name || basename(projet.palettes[0].src)}</span>
                             </div>
@@ -88,7 +88,7 @@
                             <div class="grid grid-cols-2 gap-4">
                                 {#each projet.palettes.slice(1, 3) as pal}
                                     <div class="aspect-[4/3] md:aspect-auto relative overflow-hidden group">
-                                        <img class="w-full h-full object-cover transition-organic" data-alt="{pal.name || basename(pal.src)}" src="{pal.src}" />
+                                        <img class="w-full h-full object-cover transition-organic" alt="{pal.name || basename(pal.src)}" src="{pal.src}" />
                                         <div class="absolute bottom-4 left-4 px-3 py-1 bg-surface/90 backdrop-blur rounded-full">
                                             <span class="text-[0.625rem] uppercase tracking-widest text-on-surface">{pal.name || basename(pal.src)}</span>
                                         </div>
@@ -97,7 +97,7 @@
                             </div>
                             {#if projet.palettes.length > 3}
                                 <div class="aspect-[8/3] md:aspect-auto relative overflow-hidden group">
-                                    <img class="w-full h-full object-cover transition-organic" data-alt="{projet.palettes[3].name || basename(projet.palettes[3].src)}" src="{projet.palettes[3].src}" />
+                                    <img class="w-full h-full object-cover transition-organic" alt="{projet.palettes[3].name || basename(projet.palettes[3].src)}" src="{projet.palettes[3].src}" />
                                     <div class="absolute bottom-4 left-4 px-3 py-1 bg-surface/90 backdrop-blur rounded-full">
                                         <span class="text-[0.625rem] uppercase tracking-widest text-on-surface">{projet.palettes[3].name || basename(projet.palettes[3].src)}</span>
                                     </div>
@@ -120,14 +120,14 @@
             {#if projet.plans && projet.plans.length > 0}
                 <div class="relative flex justify-center">
                     <div class="absolute inset-0 bg-stone-50/50 -z-10 transform scale-110 blur-3xl rounded-full"></div>
-                    <img class="w-full max-w-5xl h-auto grayscale hover:grayscale-0 transition-organic opacity-80 mix-blend-multiply" data-alt="Plan architectural du projet" src="{projet.plans[0]}" />
+                    <img class="w-full max-w-5xl h-auto grayscale hover:grayscale-0 transition-organic opacity-80 mix-blend-multiply" alt="Plan architectural du projet" src="{projet.plans[0]}" />
                 </div>
             {/if}
             {#if projet.coupes && projet.coupes.length > 0}
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-24">
                     <div class="space-y-8">
                         <span class="text-[0.6875rem] uppercase tracking-widest text-primary">Coupe AA'</span>
-                        <img class="w-full h-[400px] object-contain grayscale hover:grayscale-0 transition-organic opacity-60" data-alt="Coupe architecturale AA'" src="{projet.coupes[0]}" />
+                        <img class="w-full h-[400px] object-contain grayscale hover:grayscale-0 transition-organic opacity-60" alt="Coupe architecturale AA'" src="{projet.coupes[0]}" />
                     </div>
                     <div class="flex flex-col justify-center">
                         <p class="text-on-surface-variant font-body text-sm italic leading-relaxed">
@@ -139,7 +139,7 @@
             {#if projet.coupes && projet.coupes.length > 1}
                 <div class="relative flex justify-center">
                     <div class="absolute inset-0 bg-stone-50/50 -z-10 transform scale-110 blur-3xl rounded-full"></div>
-                    <img class="w-full max-w-5xl h-auto grayscale hover:grayscale-0 transition-organic opacity-80 mix-blend-multiply" data-alt="Coupe architecturale BB'" src="{projet.coupes[1]}" />
+                    <img class="w-full max-w-5xl h-auto grayscale hover:grayscale-0 transition-organic opacity-80 mix-blend-multiply" alt="Coupe architecturale BB'" src="{projet.coupes[1]}" />
                 </div>
             {/if}
         </div>
@@ -170,12 +170,12 @@
             </div>
             <div class="lg:col-span-7 grid grid-cols-2 gap-6">
                 {#if projet.images && projet.images.length > 0}
-                    <img class="w-full aspect-square object-cover rounded shadow-sm" data-alt="Étude ou image du projet" src="{projet.images[0]}" />
+                    <img class="w-full aspect-square object-cover rounded shadow-sm" alt="Étude ou image du projet" src="{projet.images[0]}" />
                 {/if}
                 {#if projet.images && projet.images.length > 1}
-                    <img class="w-full aspect-square object-cover rounded shadow-sm mt-12" data-alt="Deuxième image du projet" src="{projet.images[1]}" />
+                    <img class="w-full aspect-square object-cover rounded shadow-sm mt-12" alt="Deuxième image du projet" src="{projet.images[1]}" />
                 {:else if projet.imgPres && projet.imgPres.length > 1}
-                    <img class="w-full aspect-square object-cover rounded shadow-sm mt-12" data-alt="Vue détail du projet" src="{projet.imgPres[1]}" />
+                    <img class="w-full aspect-square object-cover rounded shadow-sm mt-12" alt="Vue détail du projet" src="{projet.imgPres[1]}" />
                 {/if}
             </div>
         </div>
@@ -185,11 +185,11 @@
     <section class="animate-section bg-surface py-24 space-y-24 fade-in">
             {#if projet.imgSecondaire && projet.imgSecondaire.length > 0}
                 <div class="w-full h-[819px] overflow-hidden">
-                    <img class="w-full h-full object-cover" data-alt="Galerie principale du projet" src="{projet.imgSecondaire[0]}" />
+                    <img class="w-full h-full object-cover" alt="Galerie principale du projet" src="{projet.imgSecondaire[0]}" />
                 </div>
             {:else if projet.images && projet.images.length > 0}
                 <div class="w-full h-[819px] overflow-hidden">
-                    <img class="w-full h-full object-cover" data-alt="Image principale du projet" src="{projet.imgPres[0]}" />
+                    <img class="w-full h-full object-cover" alt="Image principale du projet" src="{projet.imgPres[0]}" />
                 </div>
             {/if}
         
@@ -197,7 +197,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-24 mb-24">
                 {#if projet.imgSecondaire && projet.imgSecondaire.length > 0 && projet.images && projet.images.length > 0}
                     <div class="space-y-6">
-                        <img class="w-full aspect-[4/5] object-cover" data-alt="Détail architectural" src="{projet.images[0]}" />
+                        <img class="w-full aspect-[4/5] object-cover" alt="Détail architectural" src="{projet.images[0]}" />
                         {#if projet.imgSecondaire[0] && projet.imgSecondaire[0].legende}
                             <p class="text-[0.6875rem] uppercase tracking-widest text-on-surface-variant italic">{projet.imgSecondaire[0].legende}</p>
                         {:else}
@@ -206,7 +206,7 @@
                     </div>                
                 {:else if projet.images && projet.images.length > 1}
                     <div class="space-y-6">
-                        <img class="w-full aspect-[4/5] object-cover" data-alt="Vue complémentaire du projet" src="{projet.images[1]}" />
+                        <img class="w-full aspect-[4/5] object-cover" alt="Vue complémentaire du projet" src="{projet.images[1]}" />
                         <p class="text-[0.6875rem] uppercase tracking-widest text-on-surface-variant italic">Perspective additionnelle mettant en lumière l'harmonie spatiale.</p>
                     </div>
                 {/if}
@@ -214,7 +214,7 @@
             
             {#if projet.images && projet.images.length > 2}
                 <div class="max-w-4xl mx-auto py-24">
-                    <img class="w-full h-auto object-cover rounded" data-alt="Détail élément du projet" src="{projet.images[2]}" />
+                    <img class="w-full h-auto object-cover rounded" alt="Détail élément du projet" src="{projet.images[2]}" />
                     <div class="mt-12 text-center">
                         <h5 class="text-2xl font-serif italic text-on-surface">"Le détail révèle la pensée architecturale. C'est dans ces moments intimes que le projet respire."</h5>
                     </div>
@@ -222,7 +222,7 @@
             {/if}
              {#if projet.images && projet.images.length > 3}
                 <div class="max-w-4xl mx-auto py-24">
-                    <img class="w-full h-auto object-cover rounded" data-alt="Détail élément du projet" src="{projet.images[3]}" />
+                    <img class="w-full h-auto object-cover rounded" alt="Détail élément du projet" src="{projet.images[3]}" />
                     <div class="mt-12 text-center">
                         <h5 class="text-2xl font-serif italic text-on-surface">"Le détail révèle la pensée architecturale. C'est dans ces moments intimes que le projet respire."</h5>
                     </div>
@@ -230,7 +230,7 @@
             {/if}
              {#if projet.images && projet.images.length > 4}
                 <div class="max-w-4xl mx-auto py-24">
-                    <img class="w-full h-auto object-cover rounded" data-alt="Détail élément du projet" src="{projet.images[4]}" />
+                    <img class="w-full h-auto object-cover rounded" alt="Détail élément du projet" src="{projet.images[4]}" />
                     <div class="mt-12 text-center">
                         <h5 class="text-2xl font-serif italic text-on-surface">"Le détail révèle la pensée architecturale. C'est dans ces moments intimes que le projet respire."</h5>
                     </div>
@@ -261,5 +261,4 @@
     .font-serif { font-family: 'Noto Serif', serif; }
     .hero-shadow { background: linear-gradient(to top, rgba(30, 26, 31, 0.6) 0%, rgba(30, 26, 31, 0) 50%); }
     .transition-organic { transition: all 700ms cubic-bezier(0.23, 1, 0.32, 1); }
-    .tracking-widest-labels { letter-spacing: 0.15em; }
 </style>

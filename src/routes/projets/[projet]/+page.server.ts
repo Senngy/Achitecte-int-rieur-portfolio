@@ -1,11 +1,9 @@
 import { error } from '@sveltejs/kit';
-import { projets } from '$lib/data/projets';
+import { getProjet } from '$lib/server/data';
 
 export function load({ params }) {
 
-  const projet = projets.find(
-    (p) => p.slug === params.projet
-  );
+  const projet = getProjet(params.projet);
 
   if (!projet) {
     throw error(404, 'Projet introuvable');

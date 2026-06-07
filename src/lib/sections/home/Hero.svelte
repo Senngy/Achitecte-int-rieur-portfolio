@@ -149,7 +149,7 @@
      width: 100%;
      height: 100%;
      object-fit: cover;
-     object-position: left bottom;
+     object-position: center;
      opacity: 0.9;
      transform: scale(1.2);
      transition: transform 6s ease-out;
@@ -160,14 +160,7 @@
      transform: scale(1);
  }
 
- .hero-fallback {
-     position: absolute;
-     top: 0;
-     left: 0;
-     width: 100%;
-     height: 100%;
-     background: linear-gradient(145deg, var(--soft-stone) 0%, var(--mist-grey) 50%, var(--ink-black) 100%);
- }
+
 
  .hero-overlay {
      position: absolute;

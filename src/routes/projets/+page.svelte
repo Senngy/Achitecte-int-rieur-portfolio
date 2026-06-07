@@ -50,8 +50,8 @@
                 <div
                     class="md:col-span-2 bg-surface-container-low p-12 flex flex-col justify-end min-h-[400px] relative overflow-hidden group">
                     <img class="absolute inset-0 w-full h-full object-cover mix-blend-multiply opacity-20 group-hover:scale-105 transition-transform duration-1000"
-                        data-alt="close-up of hand-brushed light oak wood grain with soft directional lighting"
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5SOlM6PlZt-Q3UOq0MT6KY8Nn6tCjrJpwka-sgjm4cD6yWIIJJweiNINA4iJZq5IoSPQque24hqLGFHF4FH52aGkeVOI5HsJcpO9bsFo44ih1_261OrVP4hi45ihyopA-dA6dg9dDCy3oOM_IQODPaMIenp66MOvHpL8ORxQk2MuWlT_iCkuxhv4V4QZRUOAi4YjWoH5dJHYCTQiP3AZHPRHutHR1udC2GutTy4HsS_VXhandxbfx2nPYWd07_Ps9OAbRFi9vIbk" />
+                        alt="close-up of hand-brushed light oak wood grain with soft directional lighting"
+                        src="/images/sketch.jpg" />
                     <div class="relative z-10">
                         <h3 class="font-headline text-3xl font-light mb-4 italic">Material Sensitivity</h3>
                         <p class="font-body text-on-surface-variant max-w-md">Our approach begins with the raw state of

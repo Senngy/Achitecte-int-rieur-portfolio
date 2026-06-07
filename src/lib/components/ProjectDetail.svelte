@@ -58,8 +58,4 @@
         filter .45s ease;
 }
 
-.project-content.changing{
-    opacity:0;
-    filter:blur(8px);
-}
 </style>

@@ -13,8 +13,8 @@
             <!-- Background Image Container -->
             <div class="absolute inset-0 z-0">
                 <img class="w-full h-full object-cover"
-                    data-alt="Minimalist architectural detail of a textured lime-washed wall with soft shadows from a branch."
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAl_rcpjcjXFeuPA9e2wvRNZSaYZ0BluIYjOBbvAOhk0l8kOCIEmEmuUV3qB4ZGqm92zosTQOcZRyCx88qHnmda-wIZxHqu6etyT7mzYe2Qxpm2jGkY1Dv6MjDyRxYOlbgX0Dv_ViR7p2uCUJa2CU7l6YhJ-uDZJVF8px6o7kBfD6YkqsOkmTFuW5TzFNR55rZh-GhGc0kMMuLsKSkSHkQr9usBe24DZBiMZAPvQtCebTqkqFTLBwol_DPWz6Vu_L3vPeVGnVzpS30" />
+                    alt="Minimalist architectural detail of a textured lime-washed wall with soft shadows from a branch."
+                    src="/images/id-bath.jpg" />
                 <div class="absolute inset-0 bg-stone-900/60"></div>
                 
             </div>

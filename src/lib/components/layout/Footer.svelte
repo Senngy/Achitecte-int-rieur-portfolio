@@ -18,9 +18,9 @@
                     <p>9h00 — 18h00</p>
                 </div>
                 <div class="footer-social">
-                    <a href="#">Instagram</a>
-                    <a href="#">Pinterest</a>
-                    <a href="#">LinkedIn</a>
+                    <span class="cursor-default">Instagram</span>
+                    <span class="cursor-default">Pinterest</span>
+                    <span class="cursor-default">LinkedIn</span>
                 </div>
             </div>
         </div>

@@ -1,11 +1,11 @@
 import { sendMail } from '$lib/server/mail';
-import { blockedDomains } from '$lib/server/blocked-domains';
 import { fail } from '@sveltejs/kit';
-import { projets } from '$lib/data/projets';
+import { getProjets } from '$lib/server/data';
+import { blockedDomains } from '$lib/server/blocked-domains';
 
 export function load() {
     return {
-        projets: projets.map(({ id, titre, slug, annee, type, surface, lieu, legende, imgPres }) => ({
+        projets: getProjets().map(({ id, titre, slug, annee, type, surface, lieu, legende, imgPres }) => ({
             id,
             titre,
             slug,
@@ -19,22 +19,36 @@ export function load() {
     };
 }
 
+const contactLimiter = new Map<string, { count: number; resetAt: number }>();
+
 export const actions = {
-    contact: async ({ request }) => {
-        //console.log('server data from request:', request)
+    contact: async ({ request, getClientAddress }) => {
         const data = await request.formData();
-        console.log('server data from formData:', data)
         const name = data.get('name');
         const email = data.get('email');
         const project = data.get('project');
         const message = data.get('message');
-        const honeypot = data.get('website_url'); // Bot trap
+        const honeypot = data.get('website_url');
 
-        // Anti-spam silent reject
         if (honeypot) {
-            console.warn('Bot detected by honeypot');
             return { success: 'Merci pour votre message je vous réponds dès que possible' };
         }
+
+        const ip = getClientAddress();
+        const now = Date.now();
+        const entry = contactLimiter.get(ip);
+
+        if (entry && entry.count >= 3) {
+            if (now < entry.resetAt) {
+                return fail(429, { error: 'Trop de demandes. Réessayez plus tard.' });
+            }
+            contactLimiter.delete(ip);
+        }
+
+        const rateEntry = contactLimiter.get(ip) || { count: 0, resetAt: now + 15 * 60 * 1000 };
+        rateEntry.count += 1;
+        rateEntry.resetAt = now + 15 * 60 * 1000;
+        contactLimiter.set(ip, rateEntry);
 
         const errors: Record<string, string> = {};
 

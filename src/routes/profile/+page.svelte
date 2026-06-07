@@ -29,7 +29,7 @@ onMount(() => {
         </div>
         <div class="w-full max-h-screen lg:w-7/12 order-1 lg:order-2">
           <div class="relative h-full">
-            <img class="w-full h-full object-cover object-top rounded-sm grayscale-[20%] hover:grayscale-0 transition-all duration-1000" data-alt="Portrait of Laëtitia Moriceau" src="/images/profile-pic.JPG"/>
+            <img class="w-full h-full object-cover object-top rounded-sm grayscale-[20%] hover:grayscale-0 transition-all duration-1000" alt="Portrait of Laëtitia Moriceau" src="/images/profile-pic.JPG"/>
             <div class="absolute -bottom-8 -left-8 bg-surface-container-highest p-8 hidden md:block">
               <span class="text-[0.6875rem] uppercase tracking-widest block mb-2">Architecte et designer d'intérieur</span>
               <span class="font-serif text-2xl font-light italic">Laëtitia Moriceau</span>
@@ -81,7 +81,7 @@ onMount(() => {
           </div>
           <!-- Image Inset -->
           <div class="mt-12">
-            <img class="w-full aspect-[16/7] object-cover rounded-sm grayscale-[10%]" data-alt="Minimalist interior with warm light hitting a raw stone wall and a single sculptural chair, clean lines, high-end architectural photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxdfTSA3kXYlWBKRW98CTmkdUhuNJ75PpI-UkwmXhXVs5--1f8ldbKflbhpTF0ZOR46Nj5EKPqVVee4N2r2Kp5oTifX0Mp40LjR4wqWX_RhKGcUBpR4a6wimhRKkVWhq3w9oIdjWJcPATB6vEpKTt0H1HjGWVH3Xmz3XcvwTdCs0GiHO4Phw_8wZsc7ROFjRQbiptg7em5BU1CFApfuHStD4HDROt8z1YJ4Wdt2MA64Bu3mEY3rXzvyhKDCRqFFaKM8kjQKmwsQ4M"/>
+            <img class="w-full aspect-[16/7] object-cover rounded-sm grayscale-[10%]" alt="Croquis et moodboard d'architecture d'intérieur" src="/images/croqui.jpg"/>
           </div>
         </div>
       </div>

@@ -25,7 +25,7 @@ onMount(() => {
             </p>
         </div>
         <div class="absolute right-0 top-0 w-1/2 h-full hidden lg:block overflow-hidden rounded-bl-[10rem]">
-            <img class="w-full h-full object-cover grayscale-[0.2] contrast-[1.1]" data-alt="Minimalist luxury interior with natural sunlight streaming onto a raw oak table and neutral linen curtains in a spacious room" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9kvuusYCXF_N5LDWgfgaQtxg7pzUZvTcqMJL5UQ6IUj5KeZfhNf4mDyqFIHIteahKMelfJ9jJOrDEFwRHmShGKMb9ZVAhs7vCm6jYK21ppJucsQWjhyB3of1_Zu42ej7YpF-4nIwJmFGWO7OeDBzxld5py3RIX3iJB_abaDn3Q4lEwF6UxOD-wKpywlAGnI1HJe6jZzKQXxOrjQtp7yHH55ND07ansj8AVWC8mr-8ZBwcjR1-YBy0JfwUXT4XM-VeIThbl7PAs5I"/>
+            <img class="w-full h-full object-cover grayscale-[0.2] contrast-[1.1]" alt="Intérieur minimaliste et accueillant" src="/images/projets/projet4/img-p.png"/>
         </div>
     </section>
 <!-- Detailed Services Section (Editorial Layout) -->
@@ -93,7 +93,7 @@ onMount(() => {
             <div class="grid grid-cols-1 md:grid-cols-12 gap-8 h-auto md:h-[800px]">
 <!-- Plan Detail -->
                 <div class="md:col-span-8 bg-surface-container relative overflow-hidden group rounded-lg">
-                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Detailed architectural blueprints and technical drawings on a architect's desk with soft morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0FJYsaezMG2-dmAbSlQM6GL6sv4DqbYH5MHajQ_eiFPWU3tLKtqaRX5ra_D5sQlaeF43PrtMdVTwO2PCbnSBS07Zc-GVl4znyOwuR7-HhS5nIjKvJ0mSmlgFx69LbqWmMy0RPSnWwVSd92NP5Z_ttFtL-JBZ3dp08I6fWlvIKsojYuj1r1E3GXIeS3Rl4zJQ0qH9dkDFEeWf2WiFzyRw7c4F6ddz-YOPBlYm7E5T1fkNotbui0KppjNZUPatxHCzSRZj230L0OS8"/>
+                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Plans techniques et croquis d'architecture" src="/images/plan.jpg"/>
                     <div class="absolute bottom-0 left-0 p-12 bg-gradient-to-t from-on-background/40 to-transparent w-full">
                         <h3 class="text-white text-2xl font-light">Précision Structurelle</h3>
                         <p class="text-white/80 font-light text-sm mt-2">Études détaillées et plans d'exécution rigoureux.</p>
@@ -119,7 +119,7 @@ onMount(() => {
                 </div>
 <!-- Realized Space -->
                 <div class="md:col-span-8 bg-surface-container-highest overflow-hidden group rounded-lg">
-                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Modern interior design project completed with custom wood joinery and minimalist furniture in soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnowl_KpVo7n4BTuJ_ItgvtHTqmADKpIrtbNNBmohCC7Mt3Xmou7_8A220aBLMf85UQ_-W8gkt818ZRF6ErdQf8uP436fR2hRucv7H3JJJv-oPKHOipdfa-mfU1iuS4Y7u3OJqtl6BW-ZSP5wE2jC0IeT9pVesFTSdg5TrsQ-9b8o9RQq4rO-fAfQokYLOw78eIGs2aQySr5CyU5xySKD0yoxsDX0MB06bp1szMUGzZs6cXODPbCTwsQSv3PxVsOqT0B_2w0RIw60"/>
+                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Projet d'aménagement intérieur" src="/images/concept.webp"/>
                 </div>
             </div>
         </div>

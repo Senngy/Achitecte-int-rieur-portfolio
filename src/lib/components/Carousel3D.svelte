@@ -104,19 +104,20 @@
         <div class="carousel-container w-full h-full relative">
             
             <!-- Background click areas for easy navigation -->
-            <!-- svelte-ignore a11y-click-events-have-key-events svelte-ignore a11y-no-static-element-interactions -->
-            <div class="absolute inset-y-0 left-0 w-1/2 z-0 cursor-pointer" onclick={() => goTo((currentIndex - 1 + projets.length) % projets.length)}></div>
-            <!-- svelte-ignore a11y-click-events-have-key-events svelte-ignore a11y-no-static-element-interactions -->
-            <div class="absolute inset-y-0 right-0 w-1/2 z-0 cursor-pointer" onclick={() => goTo((currentIndex + 1) % projets.length)}></div>
+            <!-- svelte-ignore a11y_click_events_have_key_events -->
+            <div class="absolute inset-y-0 left-0 w-1/2 z-0 cursor-pointer" onclick={() => goTo((currentIndex - 1 + projets.length) % projets.length)} onkeydown={(e) => e.key === 'Enter' && goTo((currentIndex - 1 + projets.length) % projets.length)} role="button" tabindex="0" aria-label="Projet précédent"></div>
+            <!-- svelte-ignore a11y_click_events_have_key_events -->
+            <div class="absolute inset-y-0 right-0 w-1/2 z-0 cursor-pointer" onclick={() => goTo((currentIndex + 1) % projets.length)} onkeydown={(e) => e.key === 'Enter' && goTo((currentIndex + 1) % projets.length)} role="button" tabindex="0" aria-label="Projet suivant"></div>
 
             {#each projets as projet, i}
                 {@const position = getPositionClass(i, currentIndex)}
-                <!-- svelte-ignore a11y-click-events-have-key-events - allowing click to navigate directly to an image -->
-                <!-- svelte-ignore a11y-interactive-supports-focus -->
+                <!-- svelte-ignore a11y_click_events_have_key_events -->
                 <div 
                     class="carousel-item {position} group {disableTransition[i] ? '!transition-none !duration-0' : ''}" 
                     onclick={() => handleClick(i)}
+                    onkeydown={(e) => e.key === 'Enter' && handleClick(i)}
                     role="button"
+                    tabindex="0"
                 >
                     <img 
                         class="object-cover rounded shadow-2xl transition-all duration-700 ease-in-out w-[65vw] sm:w-[300px] md:w-[400px] lg:w-[450px] aspect-[4/5]
